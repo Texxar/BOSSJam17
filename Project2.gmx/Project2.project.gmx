@@ -5,9 +5,23 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
-  <backgrounds name="background"/>
+  <sprites name="sprites">
+    <sprite>sprites\spr_postit</sprite>
+    <sprite>sprites\spr_hand</sprite>
+    <sprite>sprites\spr_arm</sprite>
+  </sprites>
+  <backgrounds name="background">
+    <background>background\bg_desk</background>
+  </backgrounds>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\obj_postit</object>
+    <object>objects\obj_arm</object>
+    <object>objects\obj_hand</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\rm_desk</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
