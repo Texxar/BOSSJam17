@@ -17,13 +17,17 @@ namespace Emergen_si
         Texture2D tex;
 
 
-        public Phone(ContentManager content)
+        public Phone(ContentManager content): base()
         {
             hitBox = new Rectangle(0, 0, 64, 64);
 
-
             tex = content.Load<Texture2D>("HillHorizon");
-            rec = new Rectangle(0,0,64,64);
+            rec = new Rectangle(830, 370, tex.Width, tex.Height);
+        }
+
+        public void Update(GameTime gameTime)
+        {
+        
         }
 
         public void Draw(SpriteBatch sb)

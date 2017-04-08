@@ -4,6 +4,8 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/MaxL/SpelProjekt/BossJam/Emergen-si/Emergen-si/Content/Prototyp_0_1.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Prototyp_0_1.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/HillHorizon.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Citizens/peggy.png</File>
   </SourceFiles>
 </SourceFileCollection>

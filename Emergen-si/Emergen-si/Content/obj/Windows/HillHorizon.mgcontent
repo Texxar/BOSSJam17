@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Prototyp_0_1.png</SourceFile>
-  <SourceTime>2017-04-08T03:03:50.5545725+02:00</SourceTime>
-  <DestFile>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/bin/Windows/Prototyp_0_1.xnb</DestFile>
-  <DestTime>2017-04-08T13:22:37.9631191+02:00</DestTime>
+  <SourceFile>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/HillHorizon.png</SourceFile>
+  <SourceTime>2017-04-08T03:03:50.5515701+02:00</SourceTime>
+  <DestFile>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/bin/Windows/HillHorizon.xnb</DestFile>
+  <DestTime>2017-04-08T13:22:37.9821313+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
