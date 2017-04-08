@@ -83,8 +83,8 @@ namespace Emergen_si
         public override void Draw(SpriteBatch sb)
         {
             sb.Draw(tex, rec,null, Color.Blue,rotation,new Vector2(rec.Width/2,rec.Height/2),SpriteEffects.None,0);
-            //if(call != null)
-            //    call.Draw(sb);
+            if(call != null)
+                call.Draw(sb);
         }
     }
 }

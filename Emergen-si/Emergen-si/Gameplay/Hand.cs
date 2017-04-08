@@ -33,8 +33,9 @@ namespace Emergen_si
             rec = new Rectangle(0, 0, 64, 64);
         }
 
-        public void Update(GameTime gameTime)
+        public GamePlayState Update(GameTime gameTime)
         {
+            GamePlayState returnState = GamePlayState.Idle;
             MouseState mouseState = Mouse.GetState();
 
             rec.X = mouseState.X;
@@ -53,6 +54,9 @@ namespace Emergen_si
                             //held.held = true;
                             if (s is PostIt)
                                 ((PostIt)s).scale = 3;
+
+                            if (s is Phone)
+                                returnState = GamePlayState.Phone;
 
                         }
                     });
@@ -76,7 +80,7 @@ namespace Emergen_si
                 held.rec.Y = rec.Y;
             }
 
-
+            return returnState;
         }
 
         public void Draw(SpriteBatch sb)

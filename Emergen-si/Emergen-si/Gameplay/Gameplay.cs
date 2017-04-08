@@ -57,8 +57,10 @@ namespace Emergen_si
             switch(gameplayState)
             {
                 case GamePlayState.Idle:
+                    GamePlayState temPState = hand.Update(gameTime);
+                    if (temPState != GamePlayState.Idle)
+                        gameplayState = temPState;
                     phone.IdleUpdate(gameTime);
-                    hand.Update(gameTime);
                     postIt.Update(gameTime);
                     break;
 
