@@ -15,7 +15,6 @@ namespace Emergen_si
 {
     class Book:Interactable
     {
-        Texture2D tex;
         List<Page> pages;
         BitmapFont font;
         int currentPage = 0;
@@ -60,7 +59,7 @@ namespace Emergen_si
 
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(tex, new Vector2(0, 0), Color.White);
              pages[currentPage].Draw(spriteBatch, font);

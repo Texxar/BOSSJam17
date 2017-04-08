@@ -19,31 +19,36 @@ namespace Emergen_si
         Book
     }
 
-    class Gameplay
+    class GamePlay
     {
         GamePlayState gameplayState;
         Phone phone;
         Book book;
+        Computer computer;
+        Map map; 
         NoteBoard noteBoard;
         PostIt postIt;
         Hand hand;
-
         List<Interactable> stuff;
 
         Texture2D bord;
 
-        public Gameplay(ContentManager content)
+        public GamePlay(ContentManager content)
         {
             gameplayState = GamePlayState.Idle;
             book = new Book(content);
+
             bord = content.Load<Texture2D>("Environment\\bord");
             noteBoard = new NoteBoard(content);
+            map = new Map(content);
 
             stuff = new List<Interactable>();
 
             phone = new Phone(content); //Who dis?
             stuff.Add(phone);
 
+            computer = new Computer(content);
+            stuff.Add(computer);
             postIt = new PostIt(content, noteBoard);
             stuff.Add(postIt);
 
@@ -73,7 +78,7 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Screen:
-
+                    map.Update(gameTime);
                     break;
             }
         }
@@ -86,6 +91,7 @@ namespace Emergen_si
             {
                 case GamePlayState.Idle:
                     book.IdleDraw(spriteBatch);
+                    computer.Draw(spriteBatch);
                     phone.Draw(spriteBatch);
                     noteBoard.Draw(spriteBatch);
                     postIt.Draw(spriteBatch);
@@ -106,7 +112,7 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Screen:
-
+                    map.Draw(spriteBatch);
                     break;
             }
         }

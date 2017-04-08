@@ -14,8 +14,6 @@ namespace Emergen_si
 {
     class Phone : Interactable
     {
-        Texture2D tex;
-
         double countDownTillNextCall;
 
         Call call;

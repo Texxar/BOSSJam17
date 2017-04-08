@@ -4,23 +4,23 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Prototyp_0_1.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/HillHorizon.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Font/BIG.fnt</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Font/BIG_0.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Font/BIG_1.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Font/Work.fnt</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Font/Work_0.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Citizens/Fisherman.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Book.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Citizens/FatAvatar.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/DialogueAvatar/Calling.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/bok.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/bord.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/fon_tom.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/jadu.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/keyboard.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/mus.png</File>
-    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/skarm.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Prototyp_0_1.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/HillHorizon.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Font/BIG.fnt</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Font/BIG_0.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Font/BIG_1.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Font/Work.fnt</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Font/Work_0.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Citizens/Fisherman.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Book.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Citizens/FatAvatar.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/DialogueAvatar/Calling.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/bok.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/bord.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/fon_tom.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/jadu.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/keyboard.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/mus.png</File>
+    <File>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/skarm.png</File>
   </SourceFiles>
 </SourceFileCollection>

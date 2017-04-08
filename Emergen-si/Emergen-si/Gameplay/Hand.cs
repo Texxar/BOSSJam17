@@ -57,6 +57,8 @@ namespace Emergen_si
 
                             if (s is Phone)
                                 returnState = GamePlayState.Phone;
+                            if (s is Computer)
+                                returnState = GamePlayState.Screen;
 
                         }
                     });
