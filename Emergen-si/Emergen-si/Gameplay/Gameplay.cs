@@ -24,15 +24,32 @@ namespace Emergen_si
         GamePlayState gameplayState;
         Phone phone;
         Book book;
+        NoteBoard noteBoard;
+        PostIt postIt;
+        Hand hand;
+
+        List<Interactable> stuff;
 
         Texture2D bord;
 
         public Gameplay(ContentManager content)
         {
             gameplayState = GamePlayState.Idle;
-            phone = new Phone(content);
             book = new Book(content);
             bord = content.Load<Texture2D>("Environment\\bord");
+            noteBoard = new NoteBoard(content);
+
+            stuff = new List<Interactable>();
+
+            phone = new Phone(content); //Who dis?
+            stuff.Add(phone);
+
+            postIt = new PostIt(content, noteBoard);
+            stuff.Add(postIt);
+
+
+            hand = new Hand(content, stuff);
+
         }
 
         public void Update(GameTime gameTime)
@@ -41,6 +58,8 @@ namespace Emergen_si
             {
                 case GamePlayState.Idle:
                     phone.IdleUpdate(gameTime);
+                    hand.Update(gameTime);
+                    postIt.Update(gameTime);
                     break;
 
                 case GamePlayState.Book:
@@ -66,6 +85,14 @@ namespace Emergen_si
                 case GamePlayState.Idle:
                     book.IdleDraw(spriteBatch);
                     phone.Draw(spriteBatch);
+                    noteBoard.Draw(spriteBatch);
+                    postIt.Draw(spriteBatch);
+                    hand.Draw(spriteBatch);
+
+                    if (hand.held != null)
+                        hand.held.Draw(spriteBatch);
+
+
                     break;
 
                 case GamePlayState.Book:

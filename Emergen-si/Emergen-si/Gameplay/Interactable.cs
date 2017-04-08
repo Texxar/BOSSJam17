@@ -24,7 +24,6 @@ namespace Emergen_si
 
         public void Init()
         {
-
             rec = new Rectangle(0, 0, tex.Width, tex.Height);
         }
 
