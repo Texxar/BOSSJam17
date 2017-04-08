@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
+
 namespace Emergen_si
 {
     class Peggy : Page
@@ -14,8 +15,11 @@ namespace Emergen_si
         
         public Peggy(ContentManager content):base()
         {
-            avatar = content.Load<Texture2D>(@"Citizens//peggy");
+            avatar = content.Load<Texture2D>(@"Citizens//FatAvatar");
+            name += "Peggy SnydeBottom";
+            age += "53";
 
+            text = "Lady ";
             Initialize();
         }
     }

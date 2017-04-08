@@ -44,7 +44,7 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Book:
-
+                    book.Update();
                     break;
 
                 case GamePlayState.Phone:
