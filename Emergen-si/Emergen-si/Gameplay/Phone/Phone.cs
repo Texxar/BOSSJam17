@@ -19,6 +19,7 @@ namespace Emergen_si
         double countDownTillNextCall;
 
         Call call;
+        List<Call> callList;
 
         public Phone(ContentManager content): base()
         {
@@ -31,12 +32,14 @@ namespace Emergen_si
             countDownTillNextCall = rand.Next();
 
             call = new Call(content);
+
+            callList = new List<Call>();
+
+
         }
 
-        public void Update(GameTime gameTime)
+        public void IdleUpdate(GameTime gameTime)
         {
-            call.Update();
-
             if (countDownTillNextCall > 0)
                 countDownTillNextCall -= gameTime.TotalGameTime.TotalSeconds;
             else
@@ -44,6 +47,11 @@ namespace Emergen_si
 
             }
             
+        }
+
+        public void CallUpdate(GameTime gameTime)
+        {
+            call.Update();
         }
 
         public void Draw(SpriteBatch sb)

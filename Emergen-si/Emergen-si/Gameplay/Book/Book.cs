@@ -13,7 +13,7 @@ using MonoGame.Extended.BitmapFonts;
 
 namespace Emergen_si
 {
-    class Book
+    class Book:Interactable
     {
         Texture2D tex;
         List<Page> pages;
@@ -24,6 +24,7 @@ namespace Emergen_si
 
 
         public Book(ContentManager content)
+            :base()
         {
             pages = new List<Page>();
 
@@ -32,7 +33,7 @@ namespace Emergen_si
             pages.Add(new Peggy(content));
             pages.Add(new Fisherman(content));
 
-            tex = content.Load<Texture2D>("Book");
+            tex = content.Load<Texture2D>("Environment\\bok");
             font = content.Load<BitmapFont>(@"Font\\BIG");
         }
 
@@ -63,6 +64,11 @@ namespace Emergen_si
         {
             spriteBatch.Draw(tex, new Vector2(0, 0), Color.White);
              pages[currentPage].Draw(spriteBatch, font);
+        }
+        
+        public void IdleDraw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(tex, new Vector2(0, 0), Color.White);
         }
     }
 }
