@@ -49,9 +49,11 @@
     <Compile Include="Gameplay\Gameplay.cs" />
     <Compile Include="Gameplay\Hand.cs" />
     <Compile Include="Gameplay\Interactable.cs" />
+    <Compile Include="Gameplay\NoteBoard.cs" />
     <Compile Include="Gameplay\Phone\Calls\FishermanCall.cs" />
     <Compile Include="Gameplay\Phone\Phone.cs" />
     <Compile Include="Gameplay\Phone\Call.cs" />
+    <Compile Include="Gameplay\PostIt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
