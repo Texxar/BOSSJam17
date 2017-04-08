@@ -7,6 +7,7 @@
 *.suo
 *.user
 *.sln.docstates
+*.cache
 
 # Build results
 
@@ -53,6 +54,7 @@ build/
 *.pidb
 *.log
 *.scc
+*.cache
 
 # OS generated files #
 .DS_Store*
@@ -65,18 +67,23 @@ ipch/
 *.opensdf
 *.sdf
 *.cachefile
+*.cache
+
 
 # Visual Studio profiler
 *.psess
 *.vsp
 *.vspx
+*.cache
 
 # Guidance Automation Toolkit
 *.gpState
+*.cache
 
 # ReSharper is a .NET coding add-in
 _ReSharper*/
 *.[Rr]e[Ss]harper
+*.cache
 
 # TeamCity is a build add-in
 _TeamCity*
@@ -178,19 +185,24 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+.cache
 
 # SASS Compiler cache
 .sass-cache
+.cache
 
 # Visual Studio 2014 CTP
 **/*.sln.ide
+*.cache
 
 # Visual Studio temp something
 .vs/
+.cache
 
 # VS 2015+
 *.vc.vc.opendb
 *.vc.db
+*.cache
 
 **/node_modules/*
 
