@@ -14,12 +14,18 @@ namespace Emergen_si
 {
     class Phone
     {
-        Rectangle rec;
+        public Rectangle rec;
 
         Texture2D tex;
         public Phone(ContentManager content)
         {
-            tex = content.Load<Texture2D>("");
+            tex = content.Load<Texture2D>("HillHorizon");
+            rec = new Rectangle(830, 370, tex.Width, tex.Height);
+        }
+
+        public void Update(GameTime gameTime)
+        {
+
         }
 
         public void Draw(SpriteBatch sb)

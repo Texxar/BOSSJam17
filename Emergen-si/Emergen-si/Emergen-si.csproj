@@ -42,7 +42,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
-    <Compile Include="Phone.cs" />
+    <Compile Include="Gameplay\Book\Book.cs" />
+    <Compile Include="Gameplay\Book\Pages\Page.cs" />
+    <Compile Include="Gameplay\Book\Pages\Peggy.cs" />
+    <Compile Include="Gameplay\Gameplay.cs" />
+    <Compile Include="Gameplay\Phone.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -4,16 +4,20 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Emergen_si
 {
-    /// <summary>
-    /// This is the main type for your game.
-    /// </summary>
+    enum GameState
+    {
+        menu,
+        gameplay
+    }
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Texture2D tex;
 
+        GameState gameState;
+
+        Gameplay gamePlay;
         #region Resolution stuff
 
         public Vector2 virtualScreen;
@@ -44,7 +48,11 @@ namespace Emergen_si
             // TODO: Add your initialization logic here
             CalculateScaling(0);
 
-            tex = Content.Load<Texture2D>("Prototyp_0_1");
+
+            gamePlay = new Gameplay(Content);
+
+            gameState = GameState.gameplay;
+
 
             base.Initialize();
         }
@@ -80,8 +88,17 @@ namespace Emergen_si
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            switch(gameState)
+            {
+                case GameState.gameplay:
+                    gamePlay.Update(gameTime);
+                    break;
 
+                case GameState.menu:
+
+                    break;
+            }
+           
             base.Update(gameTime);
         }
 
@@ -96,10 +113,18 @@ namespace Emergen_si
             Matrix WVP = scale;// * cam.viewMatrix;
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointWrap, null, null, null, WVP);
 
-            spriteBatch.Draw(tex,new Vector2(0,0),Color.White);
+            switch(gameState)
+            {
+                case GameState.gameplay:
+                    gamePlay.Draw(spriteBatch);
+                    break;
+
+                case GameState.menu:
+
+                    break;
+            }
 
             spriteBatch.End();
-            // TODO: Add your drawing code here
 
             base.Draw(gameTime);
         }

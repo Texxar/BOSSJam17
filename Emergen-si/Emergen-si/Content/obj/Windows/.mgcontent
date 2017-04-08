@@ -4,6 +4,8 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/MaxL/SpelProjekt/BossJam/Emergen-si/Emergen-si/Content/Prototyp_0_1.png</File>
+    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Prototyp_0_1.png</File>
+    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/HillHorizon.png</File>
+    <File>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Citizens/peggy.png</File>
   </SourceFiles>
 </SourceFileCollection>
