@@ -16,7 +16,9 @@ namespace Emergen_si
         SpriteBatch spriteBatch;
 
         Phone phone;
+        PostIt postIt;
         Hand hand;
+        
         Texture2D tex;
         List<Interactable> stuff;
 
@@ -51,16 +53,16 @@ namespace Emergen_si
             stuff = new List<Interactable>();
 
             phone = new Phone(Content); //Who dis?
-
             stuff.Add(phone);
 
+
+            postIt = new PostIt(Content);
+            stuff.Add(postIt);
 
             hand = new Hand(Content, stuff);
 
 
-
             gamePlay = new Gameplay(Content);
-
             gameState = GameState.gameplay;
 
 
@@ -139,7 +141,13 @@ namespace Emergen_si
             }
 
             phone.Draw(spriteBatch);
+            postIt.Draw(spriteBatch);
             hand.Draw(spriteBatch);
+
+            if (hand.held != null)
+            {
+                hand.held.Draw(spriteBatch);
+            }
 
             spriteBatch.End();
 
