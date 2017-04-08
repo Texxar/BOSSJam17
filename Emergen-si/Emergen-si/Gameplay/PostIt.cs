@@ -15,18 +15,24 @@ namespace Emergen_si
     {
         Texture2D tex;
         public float scale;
+        NoteBoard noteBoard;
 
-        public PostIt(ContentManager content) : base()
+        public PostIt(ContentManager content, NoteBoard noteBoard) : base()
         {
             tex = content.Load<Texture2D>("HillHorizon");
             rec = new Rectangle(0, 0, tex.Width, tex.Height);
             hitBox = rec;
             scale = 1;
+            this.noteBoard = noteBoard;
         }
 
         public void Update(GameTime gameTime)
         {
-
+            if (!rec.Intersects(noteBoard.rec) && rec.Y < 500 && !held)
+            {
+                rec.Y += 20;
+                hitBox.Y += 20;
+            }
         }
 
 
