@@ -56,6 +56,9 @@ namespace Emergen_si
                         if (s.hitBox.Intersects(hitBox))
                         {
                             held = s;
+                            if (s is PostIt)
+                                ((PostIt)s).scale = 3;
+
                         }
                     });
                 }
@@ -63,6 +66,9 @@ namespace Emergen_si
             else
             {
                 color = Color.Wheat;
+                if (held is PostIt)
+                    ((PostIt)held).scale = 1;
+
                 held = null;
             }
 
