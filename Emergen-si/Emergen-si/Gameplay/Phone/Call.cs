@@ -14,17 +14,21 @@ namespace Emergen_si
     class Call
     {
         Rectangle rec;
-        Texture2D avatar;
+        protected Texture2D avatar;
         float rotation = 0;
         float roationValue = 0;
         float roatationSpeed = 0.03f;
 
         bool plusDirection = true;
 
-        public Call(ContentManager content)
+        public Call()
         {
-            avatar = content.Load<Texture2D>("DialogueAvatar\\Calling");
-            rec = new Rectangle(100,620,avatar.Width,avatar.Height);
+            
+        }
+
+        public void Initialzie()
+        {
+            rec = new Rectangle(100, 620, avatar.Width, avatar.Height);
         }
 
         public void Update()

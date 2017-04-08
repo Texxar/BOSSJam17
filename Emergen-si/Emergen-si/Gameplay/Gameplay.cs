@@ -65,6 +65,7 @@ namespace Emergen_si
             {
                 case GamePlayState.Idle:
                     book.IdleDraw(spriteBatch);
+                    phone.Draw(spriteBatch);
                     break;
 
                 case GamePlayState.Book:
