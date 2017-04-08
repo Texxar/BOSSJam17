@@ -23,5 +23,6 @@ namespace Emergen_si
             hitBox = rec;
         }
 
+        public virtual void Draw(SpriteBatch sb) { }
     }
 }
