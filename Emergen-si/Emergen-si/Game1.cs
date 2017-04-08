@@ -16,6 +16,7 @@ namespace Emergen_si
         SpriteBatch spriteBatch;
 
         Phone phone;
+        NoteBoard noteBoard;
         PostIt postIt;
         Hand hand;
         
@@ -50,13 +51,16 @@ namespace Emergen_si
         {
             // TODO: Add your initialization logic here
             CalculateScaling(0);
+
+            noteBoard = new NoteBoard(Content);
+
             stuff = new List<Interactable>();
 
             phone = new Phone(Content); //Who dis?
             stuff.Add(phone);
 
 
-            postIt = new PostIt(Content);
+            postIt = new PostIt(Content, noteBoard);
             stuff.Add(postIt);
 
             hand = new Hand(Content, stuff);
@@ -101,6 +105,7 @@ namespace Emergen_si
                 Exit();
 
             hand.Update(gameTime);
+            postIt.Update(gameTime);
             // TODO: Add your update logic here
 
             switch(gameState)
@@ -141,6 +146,7 @@ namespace Emergen_si
             }
 
             phone.Draw(spriteBatch);
+            noteBoard.Draw(spriteBatch);
             postIt.Draw(spriteBatch);
             hand.Draw(spriteBatch);
 

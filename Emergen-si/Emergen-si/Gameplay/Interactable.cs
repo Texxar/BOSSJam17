@@ -15,12 +15,13 @@ namespace Emergen_si
     {
         public Rectangle rec;
         public Rectangle hitBox;
-
+        public bool held;
 
         public Interactable()
         {
             rec = new Rectangle(0, 0, 10, 10);
             hitBox = rec;
+            held = false;
         }
 
         public virtual void Draw(SpriteBatch sb) { }

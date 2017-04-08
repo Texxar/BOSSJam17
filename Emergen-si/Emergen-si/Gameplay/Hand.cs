@@ -56,6 +56,7 @@ namespace Emergen_si
                         if (s.hitBox.Intersects(hitBox))
                         {
                             held = s;
+                            //held.held = true;
                             if (s is PostIt)
                                 ((PostIt)s).scale = 3;
 
@@ -69,6 +70,8 @@ namespace Emergen_si
                 if (held is PostIt)
                     ((PostIt)held).scale = 1;
 
+
+                //held.held = false;
                 held = null;
             }
 
