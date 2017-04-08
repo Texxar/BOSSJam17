@@ -15,8 +15,8 @@ namespace Emergen_si
     {
         Color color;
 
-        List<Interactable> stuff;
-        Interactable held;
+        public List<Interactable> stuff;
+        public Interactable held;
 
         Rectangle rec;
         Texture2D tex;
@@ -26,14 +26,14 @@ namespace Emergen_si
 
         public Hand(ContentManager content, List<Interactable> stuff)
         {
-            hitBox = new Rectangle(8, 8, 56, 56);
+           
             color = Color.Wheat;
             this.stuff = stuff;
             held = null;
 
             tex = content.Load<Texture2D>("HillHorizon");
             rec = new Rectangle(0, 0, 64, 64);
-
+            hitBox = rec;
         }
 
         public void Update(GameTime gameTime)
@@ -43,22 +43,35 @@ namespace Emergen_si
             rec.X = mouseState.X;
             rec.Y = mouseState.Y;
 
+            hitBox.X = rec.X;
+            hitBox.Y = rec.Y;
+
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
                 color = Color.Red;
-
-                stuff.ForEach(delegate (Interactable s)
+                if (held == null)
                 {
-                    if (s.hitBox.Intersects(hitBox))
+                    stuff.ForEach(delegate (Interactable s)
                     {
-                        held = s;
-                    }
-                });
+                        if (s.rec.Intersects(hitBox))
+                        {
+                            held = s;
+                            //held.held = true;
+                            if (s is PostIt)
+                                ((PostIt)s).scale = 3;
 
+                        }
+                    });
+                }
             }
             else
             {
                 color = Color.Wheat;
+                if (held is PostIt)
+                    ((PostIt)held).scale = 1;
+
+
+                //held.held = false;
                 held = null;
             }
 

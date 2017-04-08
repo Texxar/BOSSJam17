@@ -29,10 +29,9 @@ namespace Emergen_si
 
         public Phone(ContentManager content): base()
         {
-            hitBox = new Rectangle(0, 0, 64, 64);
-
             tex = content.Load<Texture2D>("Environment\\fon_tom");
             rec = new Rectangle(930, 470, tex.Width, tex.Height);
+
 
             Random rand = new Random();
             countDownTillNextCall = rand.Next(3,5);
@@ -74,7 +73,6 @@ namespace Emergen_si
 
                 rotation = MathHelper.Lerp(-0.14f, 0.24f, roationValue);
             }
-            
         }
 
         public void CallUpdate(GameTime gameTime)
@@ -82,7 +80,7 @@ namespace Emergen_si
             call.Update();
         }
 
-        public void Draw(SpriteBatch sb)
+        public override void Draw(SpriteBatch sb)
         {
             sb.Draw(tex, rec,null, Color.Blue,rotation,new Vector2(rec.Width/2,rec.Height/2),SpriteEffects.None,0);
             //if(call != null)

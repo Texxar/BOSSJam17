@@ -15,7 +15,12 @@ namespace Emergen_si
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        Phone phone;
+        NoteBoard noteBoard;
+        PostIt postIt;
         Hand hand;
+        
+        Texture2D tex;
         List<Interactable> stuff;
 
 
@@ -46,13 +51,23 @@ namespace Emergen_si
         {
             // TODO: Add your initialization logic here
             CalculateScaling(0);
+
+            noteBoard = new NoteBoard(Content);
+
             stuff = new List<Interactable>();
+
+            phone = new Phone(Content); //Who dis?
+            stuff.Add(phone);
+
+
+            postIt = new PostIt(Content, noteBoard);
+            stuff.Add(postIt);
+
+
             hand = new Hand(Content, stuff);
 
 
-
             gamePlay = new Gameplay(Content);
-
             gameState = GameState.gameplay;
 
 
@@ -91,6 +106,7 @@ namespace Emergen_si
                 Exit();
 
             hand.Update(gameTime);
+            postIt.Update(gameTime);
             // TODO: Add your update logic here
 
             switch(gameState)
@@ -129,8 +145,16 @@ namespace Emergen_si
 
                     break;
             }
-           
+
+            phone.Draw(spriteBatch);
+            noteBoard.Draw(spriteBatch);
+            postIt.Draw(spriteBatch);
             hand.Draw(spriteBatch);
+
+            if (hand.held != null)
+            {
+                hand.held.Draw(spriteBatch);
+            }
 
             spriteBatch.End();
 
