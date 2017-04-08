@@ -21,8 +21,6 @@ namespace Emergen_si
         Rectangle rec;
         Texture2D tex;
 
-        Rectangle hitBox;
-
 
         public Hand(ContentManager content, List<Interactable> stuff)
         {
@@ -33,7 +31,6 @@ namespace Emergen_si
 
             tex = content.Load<Texture2D>("HillHorizon");
             rec = new Rectangle(0, 0, 64, 64);
-            hitBox = rec;
         }
 
         public void Update(GameTime gameTime)
@@ -43,9 +40,6 @@ namespace Emergen_si
             rec.X = mouseState.X;
             rec.Y = mouseState.Y;
 
-            hitBox.X = rec.X;
-            hitBox.Y = rec.Y;
-
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
                 color = Color.Red;
@@ -53,7 +47,7 @@ namespace Emergen_si
                 {
                     stuff.ForEach(delegate (Interactable s)
                     {
-                        if (s.rec.Intersects(hitBox))
+                        if (s.rec.Intersects(rec))
                         {
                             held = s;
                             //held.held = true;

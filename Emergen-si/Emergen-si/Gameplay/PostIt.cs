@@ -19,7 +19,7 @@ namespace Emergen_si
         public PostIt(ContentManager content, NoteBoard noteBoard) : base()
         {
             tex = content.Load<Texture2D>("HillHorizon");
-            rec = new Rectangle(0, 0, tex.Width, tex.Height);
+            Init();
             scale = 1;
             this.noteBoard = noteBoard;
         }
