@@ -29,13 +29,13 @@ namespace Emergen_si
 
         public Gameplay(ContentManager content)
         {
-            gameplayState = GamePlayState.Book;
+            gameplayState = GamePlayState.Phone;
             phone = new Phone(content);
             book = new Book(content);
             background = content.Load<Texture2D>("Prototyp_0_1");
         }
 
-        public void Update(GameTime gameTIme)
+        public void Update(GameTime gameTime)
         {
             switch(gameplayState)
             {
@@ -48,7 +48,7 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Phone:
-                    
+                    phone.Update(gameTime);
                     break;
 
                 case GamePlayState.Screen:

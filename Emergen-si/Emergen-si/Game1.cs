@@ -15,9 +15,7 @@ namespace Emergen_si
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Phone phone;
         Hand hand;
-        Texture2D tex;
         List<Interactable> stuff;
 
 
@@ -35,7 +33,7 @@ namespace Emergen_si
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
+            graphics.PreferMultiSampling = false;
 
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
@@ -49,12 +47,6 @@ namespace Emergen_si
             // TODO: Add your initialization logic here
             CalculateScaling(0);
             stuff = new List<Interactable>();
-
-            phone = new Phone(Content); //Who dis?
-
-            stuff.Add(phone);
-
-
             hand = new Hand(Content, stuff);
 
 
@@ -137,8 +129,7 @@ namespace Emergen_si
 
                     break;
             }
-
-            phone.Draw(spriteBatch);
+           
             hand.Draw(spriteBatch);
 
             spriteBatch.End();

@@ -50,6 +50,7 @@
     <Compile Include="Gameplay\Hand.cs" />
     <Compile Include="Gameplay\Interactable.cs" />
     <Compile Include="Gameplay\Phone.cs" />
+    <Compile Include="Gameplay\Phone\Call.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
