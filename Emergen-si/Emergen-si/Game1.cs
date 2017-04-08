@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -11,8 +12,10 @@ namespace Emergen_si
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        Phone phone;
+        Hand hand;
         Texture2D tex;
+        List<Interactable> stuff;
 
         #region Resolution stuff
 
@@ -43,6 +46,15 @@ namespace Emergen_si
         {
             // TODO: Add your initialization logic here
             CalculateScaling(0);
+            stuff = new List<Interactable>();
+
+            phone = new Phone(Content); //Who dis?
+
+            stuff.Add(phone);
+
+
+            hand = new Hand(Content, stuff);
+
 
             tex = Content.Load<Texture2D>("Prototyp_0_1");
 
@@ -80,6 +92,7 @@ namespace Emergen_si
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            hand.Update(gameTime);
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -95,9 +108,10 @@ namespace Emergen_si
 
             Matrix WVP = scale;// * cam.viewMatrix;
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointWrap, null, null, null, WVP);
-
+            
             spriteBatch.Draw(tex,new Vector2(0,0),Color.White);
-
+            phone.Draw(spriteBatch);
+            hand.Draw(spriteBatch);
             spriteBatch.End();
             // TODO: Add your drawing code here
 

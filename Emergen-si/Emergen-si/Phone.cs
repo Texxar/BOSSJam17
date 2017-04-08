@@ -12,19 +12,23 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Emergen_si
 {
-    class Phone
+    class Phone : Interactable
     {
-        Rectangle rec;
-
         Texture2D tex;
+
+
         public Phone(ContentManager content)
         {
-            tex = content.Load<Texture2D>("");
+            hitBox = new Rectangle(0, 0, 64, 64);
+
+
+            tex = content.Load<Texture2D>("HillHorizon");
+            rec = new Rectangle(0,0,64,64);
         }
 
         public void Draw(SpriteBatch sb)
         {
-            sb.Draw(tex, rec, Color.Wheat);
+            sb.Draw(tex, rec, Color.Blue);
         }
     }
 }
