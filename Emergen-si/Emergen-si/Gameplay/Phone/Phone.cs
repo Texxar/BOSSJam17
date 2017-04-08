@@ -16,22 +16,46 @@ namespace Emergen_si
     {
         Texture2D tex;
 
+        double countDownTillNextCall;
+
+        Call call;
+        List<Call> callList;
 
         public Phone(ContentManager content): base()
         {
             tex = content.Load<Texture2D>("HillHorizon");
             rec = new Rectangle(830, 370, tex.Width, tex.Height);
-            hitBox = rec;
+
+
+            Random rand = new Random();
+            countDownTillNextCall = rand.Next();
+
+            call = new Call(content);
+
+            callList = new List<Call>();
+
+
         }
 
-        public void Update(GameTime gameTime)
+        public void IdleUpdate(GameTime gameTime)
         {
-        
+            if (countDownTillNextCall > 0)
+                countDownTillNextCall -= gameTime.TotalGameTime.TotalSeconds;
+            else
+            {
+
+            }
+        }
+
+        public void CallUpdate(GameTime gameTime)
+        {
+            call.Update();
         }
 
         public override void Draw(SpriteBatch sb)
         {
             sb.Draw(tex, rec, Color.Blue);
+            call.Draw(sb);
         }
     }
 }

@@ -53,7 +53,7 @@ namespace Emergen_si
                 {
                     stuff.ForEach(delegate (Interactable s)
                     {
-                        if (s.hitBox.Intersects(hitBox))
+                        if (s.rec.Intersects(hitBox))
                         {
                             held = s;
                             //held.held = true;
@@ -80,7 +80,6 @@ namespace Emergen_si
             {
                 held.rec.X = rec.X;
                 held.rec.Y = rec.Y;
-                held.hitBox = held.rec;
             }
 
 

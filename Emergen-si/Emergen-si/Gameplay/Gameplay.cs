@@ -25,22 +25,22 @@ namespace Emergen_si
         Phone phone;
         Book book;
 
-        Texture2D background;
+        Texture2D bord;
 
         public Gameplay(ContentManager content)
         {
-            gameplayState = GamePlayState.Book;
+            gameplayState = GamePlayState.Idle;
             phone = new Phone(content);
             book = new Book(content);
-            background = content.Load<Texture2D>("Prototyp_0_1");
+            bord = content.Load<Texture2D>("Environment\\bord");
         }
 
-        public void Update(GameTime gameTIme)
+        public void Update(GameTime gameTime)
         {
             switch(gameplayState)
             {
                 case GamePlayState.Idle:
-                    
+                    phone.IdleUpdate(gameTime);
                     break;
 
                 case GamePlayState.Book:
@@ -48,7 +48,7 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Phone:
-                    
+                    phone.CallUpdate(gameTime);
                     break;
 
                 case GamePlayState.Screen:
@@ -59,12 +59,12 @@ namespace Emergen_si
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(bord, new Vector2(0, 0), Color.White);
 
             switch (gameplayState)
             {
                 case GamePlayState.Idle:
-
+                    book.IdleDraw(spriteBatch);
                     break;
 
                 case GamePlayState.Book:

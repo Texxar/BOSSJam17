@@ -38,7 +38,7 @@ namespace Emergen_si
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
+            graphics.PreferMultiSampling = false;
 
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
@@ -62,6 +62,7 @@ namespace Emergen_si
 
             postIt = new PostIt(Content, noteBoard);
             stuff.Add(postIt);
+
 
             hand = new Hand(Content, stuff);
 

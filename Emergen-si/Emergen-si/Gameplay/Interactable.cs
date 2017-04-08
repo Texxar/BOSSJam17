@@ -13,15 +13,19 @@ namespace Emergen_si
 {
     class Interactable
     {
+        public Texture2D tex;
         public Rectangle rec;
-        public Rectangle hitBox;
         public bool held;
 
         public Interactable()
         {
-            rec = new Rectangle(0, 0, 10, 10);
-            hitBox = rec;
             held = false;
+        }
+
+        public void Init()
+        {
+
+            rec = new Rectangle(0, 0, tex.Width, tex.Height);
         }
 
         public virtual void Draw(SpriteBatch sb) { }

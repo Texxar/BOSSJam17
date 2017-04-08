@@ -13,7 +13,6 @@ namespace Emergen_si
 {
     class PostIt : Interactable
     {
-        Texture2D tex;
         public float scale;
         NoteBoard noteBoard;
 
@@ -21,7 +20,6 @@ namespace Emergen_si
         {
             tex = content.Load<Texture2D>("HillHorizon");
             rec = new Rectangle(0, 0, tex.Width, tex.Height);
-            hitBox = rec;
             scale = 1;
             this.noteBoard = noteBoard;
         }
@@ -31,7 +29,6 @@ namespace Emergen_si
             if (!rec.Intersects(noteBoard.rec) && rec.Y < 500 && !held)
             {
                 rec.Y += 20;
-                hitBox.Y += 20;
             }
         }
 
