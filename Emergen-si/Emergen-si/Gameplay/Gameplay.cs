@@ -25,7 +25,7 @@ namespace Emergen_si
         Phone phone;
         Book book;
         Computer computer;
-        Map map; 
+        Screen screen;
         NoteBoard noteBoard;
         PostIt postIt;
         Hand hand;
@@ -40,7 +40,7 @@ namespace Emergen_si
 
             bord = content.Load<Texture2D>("Environment\\bord");
             noteBoard = new NoteBoard(content);
-            map = new Map(content);
+            screen = new Screen(content);
 
             stuff = new List<Interactable>();
 
@@ -78,7 +78,7 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Screen:
-                    map.Update(gameTime);
+                    screen.Update(gameTime);
                     break;
             }
         }
@@ -112,7 +112,7 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Screen:
-                    map.Draw(spriteBatch);
+                    screen.Draw(spriteBatch);
                     break;
             }
         }
