@@ -41,7 +41,6 @@ namespace Emergen_si
         Map map;
         Car policeCar;
 
-        bool keyDown = false;
 
         public Screen(ContentManager content)
         {

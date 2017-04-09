@@ -19,28 +19,31 @@ namespace Emergen_si
         public int goalX, goalY;
         int speed;
         bool locked;
+        float rotation;
 
         public Car(ContentManager content, Map map) : base()
         {
-            tex = content.Load<Texture2D>("HillHorizon");
+            tex = content.Load<Texture2D>("POLICE");
             Init();
             this.map = map;
-            rec.X = 60;
-            rec.Y = 60;
-            rec.Width = 20;
-            rec.Height = 20;
+            rec.Width = map.tileSize;
+            rec.Height = map.tileSize;
 
+            posX = 10;
+            posY = 9;
+            rec.X = map.tileSize*posX + (map.tileSize/2);
+            rec.Y = map.tileSize*posY + (map.tileSize/2);
+
+            UpdatePos();
 
 
             speed = 1;
             locked = false;
 
-            posX = 1;
-            posY = 1;
-            UpdatePos();
 
-            goalX = 5;
-            goalY = 5;
+
+            goalX = 10;
+            goalY = 9;
         }
 
         public void Update(GameTime gameTime)
@@ -50,18 +53,22 @@ namespace Emergen_si
             if (posX < goalX && map.tileMap[posX+1][posY].road)
             {
                 rec.X += speed;
+                rotation = 1.57f;
             }
             else if (posX > goalX && map.tileMap[posX-1][posY].road)
             {
                 rec.X -= speed;
+                rotation = 4.64f;
             }
             else if (posY < goalY && map.tileMap[posX][posY+1].road)
             {
                 rec.Y += speed;
+                rotation = 3.14f;
             }
             else if (posY > goalY && map.tileMap[posX][posY-1].road)
             {
                 rec.Y -= speed;
+                rotation = 0;
             }
 
 
@@ -76,16 +83,16 @@ namespace Emergen_si
             if (x != posX || y != posY)
             {
                 posX = x;
-                rec.X = x * map.tileSize + map.tileSize / 4;
+                rec.X = map.tileSize * posX + (map.tileSize / 2); ;
 
                 posY = y;
-                rec.Y = y * map.tileSize + map.tileSize / 4;
+                rec.Y = map.tileSize * posY + (map.tileSize / 2); ;
             }
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            sb.Draw(tex, rec, Color.Blue);
+            sb.Draw(tex, rec, null, Color.Wheat, rotation, new Vector2(tex.Width/2, tex.Height/2), SpriteEffects.None, 0 );
         }
 
     }
