@@ -41,7 +41,7 @@ namespace Emergen_si
             mapWidth = 27;
             mapHeight = 16;
             tileSize = 46;
-            tex = content.Load<Texture2D>("MAP");
+            tex = content.Load<Texture2D>("MAPfinished");
             rec = new Rectangle(0, 0, 1280, 720);
             //Set size of tilemap
             SetUpTileMap();
@@ -61,10 +61,6 @@ namespace Emergen_si
                 for (int y = 0; y < mapHeight; y++)
                 {
                     tileMap[x][y] = new Tile();
-                    //if (x % 3 == 0 || y % 2 == 0)
-                    //{
-                    //    tileMap[x][y].road = true;
-                    //}
                 }
             }
 
