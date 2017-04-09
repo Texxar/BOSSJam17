@@ -38,14 +38,15 @@ namespace Emergen_si
 
         public Map(ContentManager content)
         {
-            mapWidth = 33;
+            mapWidth = 27;
             mapHeight = 16;
-            tileSize = 30;
-            tex = content.Load<Texture2D>("HillHorizon");
+            tileSize = 46;
+            tex = content.Load<Texture2D>("MAP");
+            rec = new Rectangle(0, 0, 1280, 720);
             //Set size of tilemap
             SetUpTileMap();
 
-            rec = new Rectangle(0, 0, 64, 64);
+
 
         }
 
@@ -60,11 +61,27 @@ namespace Emergen_si
                 for (int y = 0; y < mapHeight; y++)
                 {
                     tileMap[x][y] = new Tile();
-                    if (x % 3 == 0 || y % 2 == 0)
-                    {
-                        tileMap[x][y].road = true;
-                    }
+                    //if (x % 3 == 0 || y % 2 == 0)
+                    //{
+                    //    tileMap[x][y].road = true;
+                    //}
                 }
+            }
+
+            for (int x = 1; x < 27; x++)
+            {
+                tileMap[x][1].road = true;
+                tileMap[x][9].road = true;
+                tileMap[x][14].road = true;
+            }
+            for (int y = 1; y < 15; y++)
+            {
+                tileMap[1][y].road = true;
+                tileMap[15][y].road = true;
+                tileMap[26][y].road = true;
+                if(y < 9) tileMap[10][y].road = true;
+                if (y > 9) tileMap[7][y].road = true;
+
             }
 
 
@@ -72,7 +89,7 @@ namespace Emergen_si
 
         public int GetXTile(int x)
         {
-            int tile = (x - rec.X) / tileSize;
+            int tile = x / tileSize;
 
             if (tile > mapWidth-1)
             {
@@ -83,7 +100,7 @@ namespace Emergen_si
         }
         public int GetYTile(int y)
         {
-            int tile = (y - rec.Y) / tileSize;
+            int tile = y / tileSize;
 
             if (tile > mapHeight-1)
             {
@@ -100,17 +117,16 @@ namespace Emergen_si
 
         public void Draw(SpriteBatch sb)
         {
-            for (int x = 0; x < mapWidth; x++)
-            {
-                for (int y = 0; y < mapHeight; y++)
-                {
-                    if (tileMap[x][y].road)
-                        sb.Draw(tex, new Rectangle(tileSize * x, tileSize * y, tileSize, tileSize), Color.Black);
-                    else
-                        sb.Draw(tex, new Rectangle(tileSize * x, tileSize * y, tileSize, tileSize), Color.ForestGreen);
+            sb.Draw(tex, rec, Color.Wheat);
+            //for (int x = 0; x < mapWidth; x++)
+            //{
+            //    for (int y = 0; y < mapHeight; y++)
+            //    {
+            //        if (tileMap[x][y].road)
+            //            sb.Draw(tex, new Rectangle(tileSize * x, tileSize * y, tileSize, tileSize), new Color(255, 255, 255, 0));
+            //    }
+            //}
 
-                }
-            }
         }
     }
 }

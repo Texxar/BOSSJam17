@@ -100,7 +100,8 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Screen:
-                    screen.Update(gameTime);
+                    if(screen.Update(gameTime))
+                        gameplayState = GamePlayState.Idle;
                     break;
             }
         }

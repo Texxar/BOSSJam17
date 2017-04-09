@@ -50,7 +50,7 @@ namespace Emergen_si
             policeCar = new Car(content, map);
         }
 
-        public void Update(GameTime gameTime)
+        public bool Update(GameTime gameTime)
         {
             cursor.Update(gameTime);
 
@@ -68,9 +68,13 @@ namespace Emergen_si
 
             }
 
-
-
             policeCar.Update(gameTime);
+
+            if (mouseState.RightButton == ButtonState.Pressed)
+                return true;
+            
+            else
+                return false;
         }
 
         public void Draw(SpriteBatch sb)

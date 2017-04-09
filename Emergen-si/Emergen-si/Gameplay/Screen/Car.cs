@@ -25,15 +25,19 @@ namespace Emergen_si
             tex = content.Load<Texture2D>("HillHorizon");
             Init();
             this.map = map;
-            rec.X = 50;
-            rec.Y = 50;
+            rec.X = 60;
+            rec.Y = 60;
             rec.Width = 20;
             rec.Height = 20;
-            speed = 5;
+
+
+
+            speed = 1;
             locked = false;
 
             posX = 1;
             posY = 1;
+            UpdatePos();
 
             goalX = 5;
             goalY = 5;
@@ -67,8 +71,16 @@ namespace Emergen_si
 
         void UpdatePos()
         {
-            posX = map.GetXTile(rec.X);
-            posY = map.GetYTile(rec.Y);
+            int x = map.GetXTile(rec.X);
+            int y = map.GetYTile(rec.Y);
+            if (x != posX || y != posY)
+            {
+                posX = x;
+                rec.X = x * map.tileSize + map.tileSize / 4;
+
+                posY = y;
+                rec.Y = y * map.tileSize + map.tileSize / 4;
+            }
         }
 
         public override void Draw(SpriteBatch sb)
