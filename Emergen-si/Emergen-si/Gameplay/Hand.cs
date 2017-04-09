@@ -35,7 +35,7 @@ namespace Emergen_si
 
             tex = normal;
 
-            rec = new Rectangle(0, 0, tex.Width, tex.Height);
+            rec = new Rectangle(0, 0, 30,30);
         }
 
         public GamePlayState Update(GameTime gameTime)
@@ -48,6 +48,7 @@ namespace Emergen_si
             rec.X = mouseState.X;
             rec.Y = mouseState.Y;
 
+
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
                 tex = closed;
@@ -55,7 +56,7 @@ namespace Emergen_si
                 {
                     stuff.ForEach(delegate (Interactable s)
                     {
-                        if (s.rec.Intersects(rec) && held == null)
+                        if (s.rec.Intersects(rec) && held == null && returnState == GamePlayState.Idle)
                         {
                             s.held = true;
                             held = s;
@@ -66,30 +67,38 @@ namespace Emergen_si
                                 returnState = GamePlayState.Idle;
                             }
 
-                            if (s is Phone)
+                          
+			                if (s is Computer)
                             {
-                               if(((Phone)s).call != null)
-                                {
-                                    ((Phone)s).PickUpPhone();
-                                    returnState = GamePlayState.Phone;
-                                    held = null;
-                                    tex = holdingPhone;
-                                    rec.X = 400;
-                                    rec.Y = 220;
-                                }
-                            
-                            }
-			    if (s is Computer)
+                                held = null;
                                 returnState = GamePlayState.Screen;
+                            }
+                               
 
                             if (s is Book)
                             {
+                                held = null;
                                 //((Book)s).);
                                 returnState = GamePlayState.Book;
                                 held = null;
                                 
                             }
-                            
+
+                            if (s is Phone)
+                            {
+                                held = null;
+                                if (((Phone)s).call != null)
+                                {
+                                    ((Phone)s).PickUpPhone();
+                                    returnState = GamePlayState.Phone;
+                                    //held = null;
+                                    tex = holdingPhone;
+                                    rec.X = 800;
+                                    rec.Y = 30;
+                                }
+
+                            }
+
                         }
                     });
                 }
@@ -114,9 +123,10 @@ namespace Emergen_si
             return returnState;
         }
 
-        public void Draw(SpriteBatch sb)
+        public void Draw(SpriteBatch sb,Texture2D fill)
         {
             sb.Draw(tex, new Vector2(rec.X,rec.Y), Color.White);
+            sb.Draw(fill, rec, Color.Red);
         }
     }
 }

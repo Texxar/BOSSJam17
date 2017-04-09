@@ -21,6 +21,8 @@ namespace Emergen_si
 
             caseIntensity = CaseIntensity.low;
 
+
+
             Initialzie();
         }
 

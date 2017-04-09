@@ -63,6 +63,7 @@ namespace Emergen_si
             avatar = call.avatar;
             postIt = new PostIt(content, noteBoard, inString);
             stuff.Add(postIt);
+            Initialzie();
         }
 
         public virtual void Initialzie()
@@ -111,7 +112,7 @@ namespace Emergen_si
 
             if(countDown<0 && !failed)
             {
-                failed = true;
+                FailedCase();
             }
 
             if (postIt != null)
@@ -129,6 +130,11 @@ namespace Emergen_si
         {
             if (postIt != null)
                 postIt.Draw(spriteBatch, font);
+        }
+
+        public void FailedCase()
+        {
+            failed = true;
         }
     }
 }

@@ -33,7 +33,7 @@ namespace Emergen_si
 
         public void Update(GameTime gameTime)
         {
-            if (!rec.Intersects(noteBoard.rec) && rec.Y < 500 && !held)
+            if (!rec.Intersects(noteBoard.rec) && rec.Y < 580 && !held)
             {
                 rec.Y += 20;
             }
@@ -65,11 +65,11 @@ namespace Emergen_si
 
             foreach (String word in wordArray)
             {
-                    if (font.GetStringRectangle(line + word, new Vector2(rec.X, rec.Y)).Width > (rec.Width*scale))
+                    if (font.GetStringRectangle(line + word, new Vector2(rec.X, rec.Y)).Width > (tex.Width))
                     {
                         returnString = returnString + line + '\n' + ' ';
                         line = String.Empty;
-                        //textWriteArea.Height += 6;
+
                     }
                 line = line + word + ' ';
             }
