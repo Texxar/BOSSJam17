@@ -79,7 +79,10 @@ namespace Emergen_si
         public void Update(GameTime gameTime)
         {
             for (int n = 0; n < activeCases.Count; n++)
-                activeCases[n].ActiveCaseUpdate(gameTime);
+               if( activeCases[n].ActiveCaseUpdate(gameTime,resource))
+                {
+                    activeCases.RemoveAt(n);
+                }
             switch (gameplayState)
             {
                 case GamePlayState.Idle:
@@ -118,7 +121,7 @@ namespace Emergen_si
             computer.Draw(spriteBatch);
 
             for (int n = 0; n < activeCases.Count; n++)
-                activeCases[n].ActiveCaseDraw(spriteBatch,font);
+                activeCases[n].ActiveCaseDraw(spriteBatch,font,fill);
             switch (gameplayState)
             {
                 case GamePlayState.Idle:

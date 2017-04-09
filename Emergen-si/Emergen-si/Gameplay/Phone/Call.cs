@@ -41,6 +41,10 @@ namespace Emergen_si
         protected CaseIntensity caseIntensity;
 
         bool failed;
+
+        Rectangle messageBox = new Rectangle(-202, 100, 202,153);
+        double countDownShowMessage;
+        
         /// Penelties
         protected string failMessage;
         protected int negativeHappiness;
@@ -54,6 +58,7 @@ namespace Emergen_si
         //protected
         ///
 
+        bool bringOutMessage;
         public Call()
         {
             
@@ -77,10 +82,13 @@ namespace Emergen_si
                 countDown = rand.Next(20,30);
 
             failed = false;
+            bringOutMessage = true;
 
             rec = new Rectangle(100, 620, avatar.Width, avatar.Height);
             openCall = true;
             hasBeenDealtWith = false;
+
+            countDownShowMessage = 3;
         }
 
         public bool Update(GameTime gameTime)
@@ -106,17 +114,41 @@ namespace Emergen_si
             return openCall;
         }
 
-        public void ActiveCaseUpdate(GameTime gameTime)
+        public bool ActiveCaseUpdate(GameTime gameTime,Resources resource)
         {
             countDown -= gameTime.ElapsedGameTime.TotalSeconds;
 
             if(countDown<0 && !failed)
             {
-                FailedCase();
+                FailedCase(resource);
+            }
+
+            if(failed == true)
+            {
+                if(bringOutMessage)
+                {
+                    if(messageBox.X <0)
+                        messageBox.X++;
+                    else
+                        countDownShowMessage -= gameTime.ElapsedGameTime.TotalSeconds;
+
+                    if(countDownShowMessage<0)
+                    {
+                        bringOutMessage = false;
+                    }
+                }
+                else
+                {
+                    messageBox.X--;
+                    if (messageBox.X < -212)
+                        return true;
+                }
             }
 
             if (postIt != null)
                 postIt.Update(gameTime);
+
+            return false;
         }
 
         public void Draw(SpriteBatch spriteBatch,Vector2 dialogueVec,Texture2D fill)
@@ -126,15 +158,44 @@ namespace Emergen_si
             dia.Draw(spriteBatch, dialogueVec, fill);
         }
 
-        public void ActiveCaseDraw(SpriteBatch spriteBatch, BitmapFont font)
+        public void ActiveCaseDraw(SpriteBatch spriteBatch, BitmapFont font,Texture2D fill)
         {
             if (postIt != null)
                 postIt.Draw(spriteBatch, font);
+
+            if (failed)
+            {
+                spriteBatch.Draw(fill, messageBox, Color.Red);
+                spriteBatch.DrawString(font, ParseText(failMessage,font), new Vector2(messageBox.X, messageBox.Y),Color.White);
+            }
         }
 
-        public void FailedCase()
+        public void FailedCase(Resources resource)
         {
             failed = true;
+            resource.happiness += negativeHappiness;
+            resource.money += negativeMoney;
+        }
+
+        private string ParseText(string inputText, BitmapFont font)
+        {
+            String line = "";
+            String returnString = String.Empty;
+            String[] wordArray = inputText.Split(' ');
+
+
+            foreach (String word in wordArray)
+            {
+                if (font.GetStringRectangle(line + word, new Vector2(100, 50)).Width > (messageBox.Width))
+                {
+                    returnString = returnString + line + '\n' + ' ';
+                    line = String.Empty;
+
+                }
+                line = line + word + ' ';
+            }
+
+            return returnString + line;
         }
     }
 }

@@ -129,3 +129,6 @@ C:\Users\MaxL\Documents\GameMaker\Projects\BOSSJam17\Emergen-si\Emergen-si\bin\W
 C:\Users\MaxL\Documents\GameMaker\Projects\BOSSJam17\Emergen-si\Emergen-si\bin\Windows\x86\Debug\Content\Arm\underarm_x.xnb
 C:\Users\MaxL\Documents\GameMaker\Projects\BOSSJam17\Emergen-si\Emergen-si\bin\Windows\x86\Debug\Content\happinessIcon.xnb
 C:\Users\MaxL\Documents\GameMaker\Projects\BOSSJam17\Emergen-si\Emergen-si\bin\Windows\x86\Debug\Content\moneyIcon.xnb
+C:\Users\MaxL\Documents\GameMaker\Projects\BOSSJam17\Emergen-si\Emergen-si\bin\Windows\x86\Debug\Content\MAP.xnb
+C:\Users\MaxL\Documents\GameMaker\Projects\BOSSJam17\Emergen-si\Emergen-si\bin\Windows\x86\Debug\Content\MAPFinished.xnb
+C:\Users\MaxL\Documents\GameMaker\Projects\BOSSJam17\Emergen-si\Emergen-si\bin\Windows\x86\Debug\Content\POLICE.xnb

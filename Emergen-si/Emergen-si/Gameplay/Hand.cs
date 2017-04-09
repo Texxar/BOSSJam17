@@ -126,7 +126,6 @@ namespace Emergen_si
         public void Draw(SpriteBatch sb,Texture2D fill)
         {
             sb.Draw(tex, new Vector2(rec.X,rec.Y), Color.White);
-            sb.Draw(fill, rec, Color.Red);
         }
     }
 }

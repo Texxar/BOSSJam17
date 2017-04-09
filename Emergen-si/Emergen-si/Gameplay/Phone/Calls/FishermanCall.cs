@@ -21,15 +21,21 @@ namespace Emergen_si
 
             caseIntensity = CaseIntensity.low;
 
-
+            failMessage = "The fishes have dried out and are dead..";
 
             Initialzie();
+
         }
 
         public FishermanCall(Call call,ContentManager content,NoteBoard noteBoard, List<Interactable> stuff,string inString) : base(call,content,noteBoard,stuff,inString)
         {
-           
-        }
+            caseIntensity = CaseIntensity.high;
+
+            failMessage = "The fishes have dried out and are dead..";
+
+            negativeHappiness = -3;
+            negativeMoney = 0;
+    }
 
         public override void Initialzie()
         {
