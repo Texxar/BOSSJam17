@@ -8,9 +8,16 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
+using MonoGame.Extended.BitmapFonts;
+
 namespace Emergen_si
 {
-    
+    enum CaseIntensity
+    {
+        low,
+        medium,
+        high
+    }
     class Call
     {
         Rectangle rec;
@@ -19,19 +26,61 @@ namespace Emergen_si
         float roationValue = 0;
         float roatationSpeed = 0.03f;
 
+        protected Dialogue dia;
+
         bool plusDirection = true;
+
+        bool openCall = true;
+
+        public bool hasBeenDealtWith;
+
+        public PostIt postIt;
+
+         public double countDown;
+
+        protected CaseIntensity caseIntensity;
+
+        /// Penelties
+        protected string failMessage;
+        protected int negativeHappiness;
+        protected int negativeMoney;
+        //protected
+
+        /// Award
+        protected string awardMessage;
+        protected int PositiveHappiness;
+        protected int PositivteMoney;
+        //protected
+        ///
 
         public Call()
         {
             
         }
-
-        public void Initialzie()
+        public Call(Call call, ContentManager content, NoteBoard noteBoard, List<Interactable> stuff, string inString)
         {
-            rec = new Rectangle(100, 620, avatar.Width, avatar.Height);
+            avatar = call.avatar;
+            postIt = new PostIt(content, noteBoard, inString);
+            stuff.Add(postIt);
         }
 
-        public void Update()
+        public virtual void Initialzie()
+        {
+            Random rand = new Random();
+            if (caseIntensity == CaseIntensity.low)
+                countDown = rand.Next(40,60);
+            if (caseIntensity == CaseIntensity.medium)
+                countDown = rand.Next(30,50);
+            if (caseIntensity == CaseIntensity.high)
+                countDown = rand.Next(20,30);
+
+
+            rec = new Rectangle(100, 620, avatar.Width, avatar.Height);
+            openCall = true;
+            hasBeenDealtWith = false;
+        }
+
+        public bool Update(GameTime gameTime)
         {
             if(plusDirection)
             {
@@ -48,11 +97,30 @@ namespace Emergen_si
             }
                 
             rotation = MathHelper.Lerp(-0.14f, 0.24f, roationValue);
+            if(openCall == true)
+                openCall = dia.Update(gameTime);
+
+            return openCall;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void ActiveCaseUpdate(GameTime gameTime)
         {
-            spriteBatch.Draw(avatar,rec,null,Color.White, rotation,new Vector2(avatar.Width/2,avatar.Height/2),SpriteEffects.None,0);
+
+            if (postIt != null)
+                postIt.Update(gameTime);
+        }
+
+        public void Draw(SpriteBatch spriteBatch,Vector2 dialogueVec,Texture2D fill)
+        {
+            spriteBatch.Draw(avatar,new Vector2(dialogueVec.X+90, dialogueVec.Y+20+ avatar.Height / 2),null,Color.White, rotation,new Vector2(avatar.Width/2,avatar.Height/2),1,SpriteEffects.None,0);
+
+            dia.Draw(spriteBatch, dialogueVec, fill);
+        }
+
+        public void ActiveCaseDraw(SpriteBatch spriteBatch, BitmapFont font)
+        {
+            if (postIt != null)
+                postIt.Draw(spriteBatch, font);
         }
     }
 }

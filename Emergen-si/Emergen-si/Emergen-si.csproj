@@ -51,11 +51,15 @@
     <Compile Include="Gameplay\Interactable.cs" />
     <Compile Include="Gameplay\NoteBoard.cs" />
     <Compile Include="Gameplay\Phone\Calls\FishermanCall.cs" />
+    <Compile Include="Gameplay\Phone\Dialogue\Dialogue.cs" />
+    <Compile Include="Gameplay\Phone\Dialogue\DialogueNode.cs" />
+    <Compile Include="Gameplay\Phone\Dialogue\DialogueTree.cs" />
     <Compile Include="Gameplay\Phone\Phone.cs" />
     <Compile Include="Gameplay\Phone\Call.cs" />
     <Compile Include="Gameplay\PostIt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextInput.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Extended, Version=0.6.377.0, Culture=neutral, processorArchitecture=MSIL">

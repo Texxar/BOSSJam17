@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using MonoGame.Extended.BitmapFonts;
+
 namespace Emergen_si
 {
     enum GamePlayState
@@ -25,28 +27,32 @@ namespace Emergen_si
         Phone phone;
         Book book;
         NoteBoard noteBoard;
-        PostIt postIt;
         Hand hand;
 
         List<Interactable> stuff;
 
+        BitmapFont font;
+
         Texture2D bord;
+
+        List<Call> activeCases;
 
         public Gameplay(ContentManager content)
         {
             gameplayState = GamePlayState.Idle;
             book = new Book(content);
             bord = content.Load<Texture2D>("Environment\\bord");
+            font = content.Load<BitmapFont>("Font\\BIG");
+
             noteBoard = new NoteBoard(content);
 
             stuff = new List<Interactable>();
 
             phone = new Phone(content); //Who dis?
             stuff.Add(phone);
+            stuff.Add(book);
 
-            postIt = new PostIt(content, noteBoard);
-            stuff.Add(postIt);
-
+            activeCases = new List<Call>();
 
             hand = new Hand(content, stuff);
 
@@ -54,22 +60,25 @@ namespace Emergen_si
 
         public void Update(GameTime gameTime)
         {
-            switch(gameplayState)
+            for (int n = 0; n < activeCases.Count; n++)
+                activeCases[n].ActiveCaseUpdate(gameTime);
+            switch (gameplayState)
             {
                 case GamePlayState.Idle:
                     GamePlayState temPState = hand.Update(gameTime);
                     if (temPState != GamePlayState.Idle)
                         gameplayState = temPState;
                     phone.IdleUpdate(gameTime);
-                    postIt.Update(gameTime);
                     break;
 
                 case GamePlayState.Book:
-                    book.Update();
+                    if (book.Update())
+                        gameplayState = GamePlayState.Idle;
                     break;
 
                 case GamePlayState.Phone:
-                    phone.CallUpdate(gameTime);
+                    if (!phone.CallUpdate(gameTime, activeCases,stuff,noteBoard))
+                        gameplayState = GamePlayState.Idle;
                     break;
 
                 case GamePlayState.Screen:
@@ -78,17 +87,18 @@ namespace Emergen_si
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch,Texture2D fill)
         {
             spriteBatch.Draw(bord, new Vector2(0, 0), Color.White);
-
+            book.IdleDraw(spriteBatch);
+            phone.Draw(spriteBatch,fill,font);
+            noteBoard.Draw(spriteBatch);
+            for (int n = 0; n < activeCases.Count; n++)
+                activeCases[n].ActiveCaseDraw(spriteBatch,font);
             switch (gameplayState)
             {
                 case GamePlayState.Idle:
-                    book.IdleDraw(spriteBatch);
-                    phone.Draw(spriteBatch);
-                    noteBoard.Draw(spriteBatch);
-                    postIt.Draw(spriteBatch);
+                    
                     hand.Draw(spriteBatch);
 
                     if (hand.held != null)
@@ -102,7 +112,7 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Phone:
-                    phone.Draw(spriteBatch);
+                    phone.Draw(spriteBatch,fill,font);
                     break;
 
                 case GamePlayState.Screen:

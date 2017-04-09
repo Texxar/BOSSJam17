@@ -26,6 +26,7 @@ namespace Emergen_si
         public Matrix scale;
         #endregion
 
+        Texture2D fill;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -47,6 +48,8 @@ namespace Emergen_si
             gamePlay = new Gameplay(Content);
             gameState = GameState.gameplay;
 
+            fill = new Texture2D(GraphicsDevice, 1, 1);
+            fill.SetData(new Color[] { Color.White });
 
             base.Initialize();
         }
@@ -109,12 +112,10 @@ namespace Emergen_si
             Matrix WVP = scale;// * cam.viewMatrix;
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointWrap, null, null, null, WVP);
 
-
-
             switch(gameState)
             {
                 case GameState.gameplay:
-                    gamePlay.Draw(spriteBatch);
+                    gamePlay.Draw(spriteBatch, fill);
                     break;
 
                 case GameState.menu:

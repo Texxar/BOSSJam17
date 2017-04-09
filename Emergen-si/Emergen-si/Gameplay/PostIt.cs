@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using MonoGame.Extended.BitmapFonts;
+
 namespace Emergen_si
 {
     class PostIt : Interactable
@@ -16,12 +18,15 @@ namespace Emergen_si
         public float scale;
         NoteBoard noteBoard;
 
-        public PostIt(ContentManager content, NoteBoard noteBoard) : base()
+        string flavortext = "Something went wrong";
+
+        public PostIt(ContentManager content, NoteBoard noteBoard,string inText) : base()
         {
             tex = content.Load<Texture2D>("HillHorizon");
             Init();
             scale = 1;
             this.noteBoard = noteBoard;
+            flavortext = inText;
         }
 
         public void Update(GameTime gameTime)
@@ -34,7 +39,7 @@ namespace Emergen_si
 
 
 
-        public override void Draw(SpriteBatch sb)
+        public void Draw(SpriteBatch sb,BitmapFont font)
         {
             sb.Draw(
                 tex,
@@ -46,6 +51,30 @@ namespace Emergen_si
                 scale,                                          //scale
                 SpriteEffects.None, 
                 0 );
+            if(held)
+                sb.DrawString(font, ParseText(flavortext, font), new Vector2(rec.X- ((tex.Width*scale)/2), rec.Y - ((tex.Height*scale)/2) ), Color.White);
+
+        }
+
+        private string ParseText(string inputText,BitmapFont font)
+        {
+            String line = "";
+            String returnString = String.Empty;
+            String[] wordArray = inputText.Split(' ');
+
+
+            foreach (String word in wordArray)
+            {
+                    if (font.GetStringRectangle(line + word, new Vector2(rec.X, rec.Y)).Width > (rec.Width*scale))
+                    {
+                        returnString = returnString + line + '\n' + ' ';
+                        line = String.Empty;
+                        //textWriteArea.Height += 6;
+                    }
+                line = line + word + ' ';
+            }
+
+            return returnString + line;
         }
     }
 }

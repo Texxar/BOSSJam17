@@ -30,45 +30,46 @@ namespace Emergen_si
 
             pages.Add(new Peggy(content));
             pages.Add(new Fisherman(content));
-            pages.Add(new Peggy(content));
-            pages.Add(new Fisherman(content));
 
             tex = content.Load<Texture2D>("Environment\\bok");
             font = content.Load<BitmapFont>(@"Font\\BIG");
+
+            rec = new Rectangle(50, 400, tex.Width, tex.Height);
         }
 
-        public void Update()
+        public bool Update()
         {
-            if(Keyboard.GetState().IsKeyDown(Keys.Right ) && !keyDown)
+            if(Keyboard.GetState().IsKeyDown(Keys.D ) && !keyDown)
             {
                 if (currentPage < pages.Count-1)
                     currentPage++;
 
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Left) && !keyDown)
+            if (Keyboard.GetState().IsKeyDown(Keys.A) && !keyDown)
             {
                 if (currentPage > 0)
                     currentPage--;
 
             }
+            
 
             if (Keyboard.GetState().GetPressedKeys().Length > 0)
                 keyDown = true;
             else
                 keyDown = false;
-
+            return Mouse.GetState().RightButton == ButtonState.Pressed;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(tex, new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(tex, rec, Color.White);
              pages[currentPage].Draw(spriteBatch, font);
         }
         
         public void IdleDraw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(tex, new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(tex, rec, Color.White);
         }
     }
 }

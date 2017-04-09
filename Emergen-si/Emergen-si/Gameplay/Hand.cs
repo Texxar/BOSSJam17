@@ -48,16 +48,35 @@ namespace Emergen_si
                 {
                     stuff.ForEach(delegate (Interactable s)
                     {
-                        if (s.rec.Intersects(rec))
+                        if (s.rec.Intersects(rec) && held == null)
                         {
+                            s.held = true;
                             held = s;
                             //held.held = true;
                             if (s is PostIt)
+                            {
                                 ((PostIt)s).scale = 3;
+                                returnState = GamePlayState.Idle;
+                            }
 
                             if (s is Phone)
-                                returnState = GamePlayState.Phone;
+                            {
+                               if(((Phone)s).call != null)
+                                {
+                                    ((Phone)s).PickUpPhone();
+                                    returnState = GamePlayState.Phone;
+                                    held = null;
+                                }
+                            }
 
+                            if (s is Book)
+                            {
+                                //((Book)s).);
+                                returnState = GamePlayState.Book;
+                                held = null;
+                                
+                            }
+                            
                         }
                     });
                 }
@@ -65,10 +84,10 @@ namespace Emergen_si
             else
             {
                 color = Color.Wheat;
+                if (held != null)
+                    held.held = false;
                 if (held is PostIt)
                     ((PostIt)held).scale = 1;
-
-
                 //held.held = false;
                 held = null;
             }

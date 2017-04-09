@@ -112,3 +112,4 @@ C:\Users\Markus\Documents\GitHub\BOSSJam17\Emergen-si\Emergen-si\bin\Windows\x86
 C:\Users\Markus\Documents\GitHub\BOSSJam17\Emergen-si\Emergen-si\bin\Windows\x86\Debug\MonoGame.Extended.dll
 C:\Users\Markus\Documents\GitHub\BOSSJam17\Emergen-si\Emergen-si\bin\Windows\x86\Debug\Newtonsoft.Json.dll
 C:\Users\Markus\Documents\GitHub\BOSSJam17\Emergen-si\Emergen-si\bin\Windows\x86\Debug\Newtonsoft.Json.xml
+C:\Users\MaxL\Documents\GameMaker\Projects\BOSSJam17\Emergen-si\Emergen-si\bin\Windows\x86\Debug\Content\DialogueAvatar\DialogBox.xnb
