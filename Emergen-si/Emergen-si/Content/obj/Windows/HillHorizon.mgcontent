@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/HillHorizon.png</SourceFile>
-  <SourceTime>2017-04-08T03:03:50.5515701+02:00</SourceTime>
-  <DestFile>C:/Users/Markus/Documents/GitHub/BOSSJam17/Emergen-si/Emergen-si/Content/bin/Windows/HillHorizon.xnb</DestFile>
-  <DestTime>2017-04-08T21:05:59.2043112+02:00</DestTime>
+  <SourceFile>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/HillHorizon.png</SourceFile>
+  <SourceTime>2016-12-26T16:30:39.3979958+01:00</SourceTime>
+  <DestFile>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/bin/Windows/HillHorizon.xnb</DestFile>
+  <DestTime>2017-04-09T02:26:12.7429079+01:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
+  <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2016-03-30T08:36:08+02:00</ProcessorTime>
+  <ProcessorTime>2017-03-01T16:05:36+01:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

@@ -38,6 +38,7 @@ namespace Emergen_si
 
         List<Call> activeCases;
 
+       public GamePlay (ContentManager content)
         {
             gameplayState = GamePlayState.Idle;
             book = new Book(content);

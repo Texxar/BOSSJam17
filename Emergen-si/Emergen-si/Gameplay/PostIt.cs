@@ -37,8 +37,6 @@ namespace Emergen_si
             }
         }
 
-
-
         public void Draw(SpriteBatch sb,BitmapFont font)
         {
             sb.Draw(
