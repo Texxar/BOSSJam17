@@ -30,7 +30,7 @@ namespace Emergen_si
             pages.Add(new Peggy(content));
             pages.Add(new Fisherman(content));
 
-            tex = content.Load<Texture2D>("Environment\\bok");
+            tex = content.Load<Texture2D>("Environment\\bok_kanske");
             font = content.Load<BitmapFont>(@"Font\\BIG");
 
             rec = new Rectangle(50, 400, tex.Width, tex.Height);

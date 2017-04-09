@@ -13,28 +13,35 @@ namespace Emergen_si
 {
     class Hand
     {
-        Color color;
-
         public List<Interactable> stuff;
         public Interactable held;
 
         Rectangle rec;
         Texture2D tex;
 
+        Texture2D normal;
+        Texture2D closed;
+        Texture2D holdingPhone;
 
         public Hand(ContentManager content, List<Interactable> stuff)
         {
            
-            color = Color.Wheat;
             this.stuff = stuff;
             held = null;
 
-            tex = content.Load<Texture2D>("HillHorizon");
-            rec = new Rectangle(0, 0, 64, 64);
+            normal = content.Load<Texture2D>("Arm\\hand");
+            closed = content.Load<Texture2D>("Arm\\fistadman");
+            holdingPhone = content.Load<Texture2D>("Arm\\hold_phone_x");
+
+            tex = normal;
+
+            rec = new Rectangle(0, 0, tex.Width, tex.Height);
         }
 
         public GamePlayState Update(GameTime gameTime)
         {
+            tex = normal;
+
             GamePlayState returnState = GamePlayState.Idle;
             MouseState mouseState = Mouse.GetState();
 
@@ -43,7 +50,7 @@ namespace Emergen_si
 
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
-                color = Color.Red;
+                tex = closed;
                 if (held == null)
                 {
                     stuff.ForEach(delegate (Interactable s)
@@ -55,7 +62,7 @@ namespace Emergen_si
                             //held.held = true;
                             if (s is PostIt)
                             {
-                                ((PostIt)s).scale = 3;
+                                ((PostIt)s).scale = 1;
                                 returnState = GamePlayState.Idle;
                             }
 
@@ -66,6 +73,9 @@ namespace Emergen_si
                                     ((Phone)s).PickUpPhone();
                                     returnState = GamePlayState.Phone;
                                     held = null;
+                                    tex = holdingPhone;
+                                    rec.X = 400;
+                                    rec.Y = 220;
                                 }
                             
                             }
@@ -86,11 +96,10 @@ namespace Emergen_si
             }
             else
             {
-                color = Color.Wheat;
                 if (held != null)
                     held.held = false;
                 if (held is PostIt)
-                    ((PostIt)held).scale = 1;
+                    ((PostIt)held).scale = 0.1f;
                 //held.held = false;
                 held = null;
             }
@@ -107,7 +116,7 @@ namespace Emergen_si
 
         public void Draw(SpriteBatch sb)
         {
-            sb.Draw(tex, rec, color);
+            sb.Draw(tex, new Vector2(rec.X,rec.Y), Color.White);
         }
     }
 }

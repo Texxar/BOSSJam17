@@ -40,6 +40,7 @@ namespace Emergen_si
 
         protected CaseIntensity caseIntensity;
 
+        bool failed;
         /// Penelties
         protected string failMessage;
         protected int negativeHappiness;
@@ -74,6 +75,7 @@ namespace Emergen_si
             if (caseIntensity == CaseIntensity.high)
                 countDown = rand.Next(20,30);
 
+            failed = false;
 
             rec = new Rectangle(100, 620, avatar.Width, avatar.Height);
             openCall = true;
@@ -105,6 +107,12 @@ namespace Emergen_si
 
         public void ActiveCaseUpdate(GameTime gameTime)
         {
+            countDown -= gameTime.ElapsedGameTime.TotalSeconds;
+
+            if(countDown<0 && !failed)
+            {
+                failed = true;
+            }
 
             if (postIt != null)
                 postIt.Update(gameTime);
