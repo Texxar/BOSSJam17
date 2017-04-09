@@ -28,8 +28,18 @@ namespace Emergen_si
         {
             pages = new List<Page>();
 
-            pages.Add(new Peggy(content));
-            pages.Add(new Fisherman(content));
+            pages.Add(new GhostPage(content));
+            pages.Add(new DonniePage(content));
+            pages.Add(new KidPage(content));
+            pages.Add(new ChickOritaPage(content));
+            pages.Add(new GrannyPage(content));
+            pages.Add(new BahamasPage(content));
+            pages.Add(new ButchPage(content));
+            pages.Add(new SullyPage(content));
+            pages.Add(new RonaldPage(content));
+            pages.Add(new MartinRobsPAge(content));
+
+            //pages.Add(new Fisherman(content));
 
             tex = content.Load<Texture2D>("Environment\\bok_kanske");
             openBook = content.Load<Texture2D>("Environment\\BookOpen");

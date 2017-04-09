@@ -11,6 +11,8 @@ using Microsoft.Xna.Framework.Input;
 
 using MonoGame.Extended.BitmapFonts;
 
+using Microsoft.Xna.Framework.Audio;
+
 
 namespace Emergen_si
 {
@@ -53,7 +55,7 @@ namespace Emergen_si
             rec = new Rectangle(1100, 510, tex.Width, tex.Height);
 
             Random rand = new Random();
-            countDownTillNextCall = rand.Next(0,2);
+            countDownTillNextCall = rand.Next(4,7);
 
             call = null;
 
