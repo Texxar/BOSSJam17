@@ -51,7 +51,12 @@
     <Compile Include="Gameplay\Hand.cs" />
     <Compile Include="Gameplay\Interactable.cs" />
     <Compile Include="Gameplay\NoteBoard.cs" />
+    <Compile Include="Gameplay\Phone\Calls\HomeworkCall.cs" />
+    <Compile Include="Gameplay\Phone\Calls\HumanSight.cs" />
+    <Compile Include="Gameplay\Phone\Calls\DonnyCall.cs" />
     <Compile Include="Gameplay\Phone\Calls\FishermanCall.cs" />
+    <Compile Include="Gameplay\Phone\Calls\GhostSightCall.cs" />
+    <Compile Include="Gameplay\Phone\Calls\GrannyCall.cs" />
     <Compile Include="Gameplay\Phone\Dialogue\Dialogue.cs" />
     <Compile Include="Gameplay\Phone\Dialogue\DialogueNode.cs" />
     <Compile Include="Gameplay\Phone\Dialogue\DialogueTree.cs" />

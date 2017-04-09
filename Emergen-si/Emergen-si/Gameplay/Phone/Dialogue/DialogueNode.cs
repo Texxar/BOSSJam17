@@ -178,7 +178,7 @@ namespace Emergen_si
                     {
 
                     }
-                    if (font.GetStringRectangle(line + word, new Vector2(textWriteArea.X, textWriteArea.Y)).Width > textWriteArea.Width)
+                    if (font.GetStringRectangle(line + word, new Vector2(textWriteArea.X, textWriteArea.Y)).Width > textWriteArea.Width- 180)
                     {
                         returnString = returnString + line + '\n' + ' ';
                         line = String.Empty;

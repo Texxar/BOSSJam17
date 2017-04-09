@@ -59,7 +59,12 @@ namespace Emergen_si
 
             callList = new List<Call>();
 
-            callList.Add(new FishermanCall(content));
+            //callList.Add(new FishermanCall(content));
+            callList.Add(new DonnyCall(content));
+            callList.Add(new GrannyCall(content));
+            callList.Add(new GhostSightCall(content));
+            callList.Add(new HumanSightCall(content));
+            callList.Add(new HomeworkCall(content));
 
             dialogueVec = new Vector2(0, 800);
 
@@ -139,7 +144,16 @@ namespace Emergen_si
                     if (!call.hasBeenDealtWith)
                         if (call.GetType() == typeof(FishermanCall))
                             activeCases.Add(new FishermanCall(call, content, noteBoard, stuff, textInput.returnString));
-
+                        if (call.GetType() == typeof(DonnyCall))
+                            activeCases.Add(new DonnyCall(call, content, noteBoard, stuff, textInput.returnString));
+                        if (call.GetType() == typeof(GrannyCall))
+                            activeCases.Add(new GrannyCall(call, content, noteBoard, stuff, textInput.returnString));
+                        if (call.GetType() == typeof(GhostSightCall))
+                            activeCases.Add(new GhostSightCall(call, content, noteBoard, stuff, textInput.returnString));
+                        if (call.GetType() == typeof(HumanSightCall))
+                            activeCases.Add(new HumanSightCall(call, content, noteBoard, stuff, textInput.returnString));
+                        if (call.GetType() == typeof(HomeworkCall))
+                            activeCases.Add(new HomeworkCall(call, content, noteBoard, stuff, textInput.returnString));
                     textInput.Clear();
                     writeNote = false;
                     call = null;
