@@ -19,7 +19,7 @@ namespace Emergen_si
             name += "Fisherman";
             age += "28";
 
-            text = "HELP ME YOU GOBTROTTER ";
+            text = "Lives by the sea and eats tumbleweeds ";
             Initialize();
         }
     }

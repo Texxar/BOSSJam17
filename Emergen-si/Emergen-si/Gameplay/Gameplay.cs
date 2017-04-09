@@ -23,6 +23,8 @@ namespace Emergen_si
 
     class GamePlay
     {
+        ContentManager content;
+
         GamePlayState gameplayState;
         Phone phone;
         Book book;
@@ -43,10 +45,21 @@ namespace Emergen_si
 
         Resources resource;
 
-
         List<Call> activeCases;
 
+        Texture2D gameOverTex;
+        Texture2D gameWinTex;
+        bool gameOver = false;
+        bool gameWin = false;
+        float alphaGameOver = 0;
+
        public GamePlay (ContentManager content)
+        {
+            this.content = content;
+            Initialize(content);
+        }
+
+        public void Initialize(ContentManager content)
         {
             gameplayState = GamePlayState.Idle;
             book = new Book(content);
@@ -58,6 +71,8 @@ namespace Emergen_si
 
             happinessIcon = content.Load<Texture2D>("happinessIcon");
             moneyIcon = content.Load<Texture2D>("moneyIcon");
+            gameOverTex = content.Load<Texture2D>("GameOver");
+            gameWinTex = content.Load<Texture2D>("GameOver");
 
             noteBoard = new NoteBoard(content);
             screen = new Screen(content);
@@ -75,48 +90,74 @@ namespace Emergen_si
             hand = new Hand(content, stuff);
 
             resource = new Resources();
-
         }
 
         public void Update(GameTime gameTime)
         {
-            for (int n = 0; n < activeCases.Count; n++)
+            if (!gameOver && !gameWin)
             {
-                if (activeCases[n].ActiveCaseUpdate(gameTime, resource))
+                for (int n = 0; n < activeCases.Count; n++)
                 {
-                    activeCases.RemoveAt(n);
+                    if (activeCases[n].ActiveCaseUpdate(gameTime, resource))
+                    {
+                        activeCases.RemoveAt(n);
+                    }
+                }
+                screen.CheckWinCondition(activeCases, resource);
+
+                screen.UpdateCopCar(gameTime);
+
+                phone.IdleUpdate(gameTime, resource);
+
+                switch (gameplayState)
+                {
+                    case GamePlayState.Idle:
+                        GamePlayState temPState = hand.Update(gameTime);
+                        if (temPState != GamePlayState.Idle)
+                            gameplayState = temPState;
+
+                        break;
+
+                    case GamePlayState.Book:
+                        if (book.Update())
+                            gameplayState = GamePlayState.Idle;
+                        break;
+
+                    case GamePlayState.Phone:
+                        if (!phone.CallUpdate(gameTime, activeCases, stuff, noteBoard))
+                            gameplayState = GamePlayState.Idle;
+                        break;
+
+                    case GamePlayState.Screen:
+                        if (screen.Update(gameTime))
+                            gameplayState = GamePlayState.Idle;
+                        break;
+                }
+
+                if (resource.happiness < 0 || resource.money < 0)
+                    gameOver = true;
+
+                if (resource.happiness > 35 || resource.money > 1600)
+                    gameWin = true;
+
+            }
+            else
+            {
+                if(alphaGameOver <1)
+                {
+                    alphaGameOver += 0.01f;
+                }
+                else
+                {
+                    if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+                    {
+                        gameOver = false;
+                        gameWin = false;
+                        Initialize(content);
+                    }
                 }
             }
-            screen.CheckWinCondition(activeCases, resource);
 
-            screen.UpdateCopCar(gameTime);
-
-            phone.IdleUpdate(gameTime,resource);
-
-            switch (gameplayState)
-            {
-                case GamePlayState.Idle:
-                    GamePlayState temPState = hand.Update(gameTime);
-                    if (temPState != GamePlayState.Idle)
-                        gameplayState = temPState;
-                    
-                    break;
-
-                case GamePlayState.Book:
-                    if (book.Update())
-                        gameplayState = GamePlayState.Idle;
-                    break;
-
-                case GamePlayState.Phone:
-                    if (!phone.CallUpdate(gameTime, activeCases,stuff,noteBoard))
-                        gameplayState = GamePlayState.Idle;
-                    break;
-
-                case GamePlayState.Screen:
-                    if (screen.Update(gameTime))
-                        gameplayState = GamePlayState.Idle;
-                    break;
-            }
         }
 
         public void Draw(SpriteBatch spriteBatch,Texture2D fill)
@@ -167,6 +208,11 @@ namespace Emergen_si
 
             spriteBatch.Draw(moneyIcon, new Vector2(400, 0), Color.White);
             spriteBatch.DrawString(font, resource.money.ToString(), new Vector2(450, 0), Color.White);
+
+            if (gameOver)
+                spriteBatch.Draw(gameOverTex, new Vector2(0, 0), new Color(Color.White,alphaGameOver));
+            if(gameWin)
+                spriteBatch.Draw(gameWinTex, new Vector2(0, 0), new Color(Color.White, alphaGameOver));
         }
     }
 }

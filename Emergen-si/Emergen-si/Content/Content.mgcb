@@ -485,7 +485,11 @@
 /processorParam:TextureFormat=Color
 /build:Font/MCBig_0.png
 
+<<<<<<< HEAD
 #begin DialogueAvatar/bahamas.png
+=======
+#begin Citizens/bahamas.png
+>>>>>>> e3b09fbfd7b5fbc2057d76c58fb1368161471171
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -495,9 +499,15 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:DialogueAvatar/bahamas.png
 
 #begin DialogueAvatar/donkeykong.png
+=======
+/build:Citizens/bahamas.png
+
+#begin Citizens/donkeykong.png
+>>>>>>> e3b09fbfd7b5fbc2057d76c58fb1368161471171
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -507,9 +517,15 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:DialogueAvatar/donkeykong.png
 
 #begin DialogueAvatar/ghostofforestmanor.png
+=======
+/build:Citizens/donkeykong.png
+
+#begin Citizens/ghostofforestmanor.png
+>>>>>>> e3b09fbfd7b5fbc2057d76c58fb1368161471171
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -519,9 +535,15 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:DialogueAvatar/ghostofforestmanor.png
 
 #begin DialogueAvatar/granny.png
+=======
+/build:Citizens/ghostofforestmanor.png
+
+#begin Citizens/granny.png
+>>>>>>> e3b09fbfd7b5fbc2057d76c58fb1368161471171
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -531,9 +553,15 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:DialogueAvatar/granny.png
 
 #begin DialogueAvatar/hawtchick.png
+=======
+/build:Citizens/granny.png
+
+#begin Citizens/hawtchick.png
+>>>>>>> e3b09fbfd7b5fbc2057d76c58fb1368161471171
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -543,9 +571,15 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:DialogueAvatar/hawtchick.png
 
 #begin DialogueAvatar/kid.png
+=======
+/build:Citizens/hawtchick.png
+
+#begin Citizens/kid.png
+>>>>>>> e3b09fbfd7b5fbc2057d76c58fb1368161471171
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -555,9 +589,15 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:DialogueAvatar/kid.png
 
 #begin DialogueAvatar/midlifecrisis.png
+=======
+/build:Citizens/kid.png
+
+#begin Citizens/midlifecrisis.png
+>>>>>>> e3b09fbfd7b5fbc2057d76c58fb1368161471171
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -567,9 +607,15 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:DialogueAvatar/midlifecrisis.png
 
 #begin DialogueAvatar/mobster.png
+=======
+/build:Citizens/midlifecrisis.png
+
+#begin Citizens/mobster.png
+>>>>>>> e3b09fbfd7b5fbc2057d76c58fb1368161471171
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -579,9 +625,15 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:DialogueAvatar/mobster.png
 
 #begin DialogueAvatar/normal guy.png
+=======
+/build:Citizens/mobster.png
+
+#begin Citizens/normal guy.png
+>>>>>>> e3b09fbfd7b5fbc2057d76c58fb1368161471171
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -591,9 +643,15 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:DialogueAvatar/normal guy.png
 
 #begin DialogueAvatar/teenagewasteland.png
+=======
+/build:Citizens/normal guy.png
+
+#begin Citizens/teenagewasteland.png
+>>>>>>> e3b09fbfd7b5fbc2057d76c58fb1368161471171
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -603,9 +661,15 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:DialogueAvatar/teenagewasteland.png
 
 #begin DialogueAvatar/workout.png
+=======
+/build:Citizens/teenagewasteland.png
+
+#begin Citizens/workout.png
+>>>>>>> e3b09fbfd7b5fbc2057d76c58fb1368161471171
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -615,9 +679,15 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:DialogueAvatar/workout.png
 
 #begin DialogueAvatar/yugioh.png
+=======
+/build:Citizens/workout.png
+
+#begin Citizens/yugioh.png
+>>>>>>> e3b09fbfd7b5fbc2057d76c58fb1368161471171
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -627,5 +697,27 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:DialogueAvatar/yugioh.png
+=======
+/build:Citizens/yugioh.png
+
+#begin GameOver.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:GameOver.png
+
+#begin phone.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:phone.wav
+>>>>>>> e3b09fbfd7b5fbc2057d76c58fb1368161471171
 

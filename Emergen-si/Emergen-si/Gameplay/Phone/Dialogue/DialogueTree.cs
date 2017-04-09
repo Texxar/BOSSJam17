@@ -15,7 +15,7 @@ namespace Emergen_si
 
         public int currentLevel { get; set; }
 
-        int currentNode;
+        public int currentNode;
 
         public DialogueState dialogueState { get; set; }
 

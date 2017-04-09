@@ -57,11 +57,6 @@ namespace Emergen_si
         {
             cursor.Update(gameTime);
 
-            if(atcrimeScreen)
-            {
-                crimeSceenCountDown -= gameTime.ElapsedGameTime.TotalSeconds;
-            }
-
             MouseState mouseState = Mouse.GetState();
 
             if (mouseState.LeftButton == ButtonState.Pressed)
@@ -76,8 +71,6 @@ namespace Emergen_si
 
             }
 
-           
-
             if (mouseState.RightButton == ButtonState.Pressed)
                 return true;
             
@@ -85,8 +78,13 @@ namespace Emergen_si
                 return false;
         }
 
+
         public void UpdateCopCar(GameTime gameTime)
         {
+            if (atcrimeScreen)
+            {
+                crimeSceenCountDown -= gameTime.ElapsedGameTime.TotalSeconds;
+            }
             policeCar.Update(gameTime);
         }
 

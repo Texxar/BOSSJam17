@@ -39,7 +39,9 @@ namespace Emergen_si
             spriteBatch.Draw(avatar, rec, Color.White);
 
             spriteBatch.DrawString(font, name, new Vector2(520, 50), Color.Black);
-            spriteBatch.DrawString(font, age, new Vector2(520, 120), Color.Black);
+            spriteBatch.DrawString(font, age, new Vector2(520, 125), Color.Black);
+            spriteBatch.DrawString(font, text, new Vector2(100, 300), Color.Black);
+            
 
             // spriteBatch.DrawString(font, text, new Vector2(50, 50), Color.Black);
         }

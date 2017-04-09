@@ -24,6 +24,7 @@ namespace Emergen_si
 
         public float maximumSpeed, minimumSpeed;
 
+        public int lasteTree;
         int currentTree;
 
         public string fileName;
@@ -148,6 +149,7 @@ namespace Emergen_si
 
         public bool Update(GameTime gameTime)
         {
+            lasteTree = currentTree;
             currentTree = dialogueTree[currentTree].Update(gameTime, this);
 
             if (currentTree == -1)

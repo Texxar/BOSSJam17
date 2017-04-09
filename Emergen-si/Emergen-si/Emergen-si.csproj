@@ -43,9 +43,19 @@
   <ItemGroup>
     <Compile Include="Game1.cs" />
     <Compile Include="Gameplay\Book\Book.cs" />
+    <Compile Include="Gameplay\Book\Pages\BahamasPage.cs" />
+    <Compile Include="Gameplay\Book\Pages\ButchPage.cs" />
+    <Compile Include="Gameplay\Book\Pages\ChickOritaPage.cs" />
+    <Compile Include="Gameplay\Book\Pages\DonniePage.cs" />
     <Compile Include="Gameplay\Book\Pages\Fisherman.cs" />
+    <Compile Include="Gameplay\Book\Pages\GhostPage.cs" />
+    <Compile Include="Gameplay\Book\Pages\GrannyPage.cs" />
+    <Compile Include="Gameplay\Book\Pages\KidPage.cs" />
+    <Compile Include="Gameplay\Book\Pages\MartinRobsPAge.cs" />
     <Compile Include="Gameplay\Book\Pages\Page.cs" />
     <Compile Include="Gameplay\Book\Pages\Peggy.cs" />
+    <Compile Include="Gameplay\Book\Pages\RonaldPage.cs" />
+    <Compile Include="Gameplay\Book\Pages\SullyPage.cs" />
     <Compile Include="Gameplay\Computer.cs" />
     <Compile Include="Gameplay\Gameplay.cs" />
     <Compile Include="Gameplay\Hand.cs" />
