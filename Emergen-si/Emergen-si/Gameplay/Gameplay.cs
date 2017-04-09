@@ -34,7 +34,9 @@ namespace Emergen_si
 
         BitmapFont font;
 
+        Texture2D background;
         Texture2D bord;
+
 
         List<Call> activeCases;
 
@@ -43,6 +45,7 @@ namespace Emergen_si
             gameplayState = GamePlayState.Idle;
             book = new Book(content);
 
+            background = content.Load<Texture2D>("Environment\\bakgrund_color");
             bord = content.Load<Texture2D>("Environment\\bord");
             font = content.Load<BitmapFont>("Font\\BIG");
 
@@ -94,17 +97,21 @@ namespace Emergen_si
 
         public void Draw(SpriteBatch spriteBatch,Texture2D fill)
         {
-            spriteBatch.Draw(bord, new Vector2(0, 0), Color.White);
+            
+            spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(bord, new Vector2(0, 400), Color.White);
+
             book.IdleDraw(spriteBatch);
             phone.Draw(spriteBatch,fill,font);
             noteBoard.Draw(spriteBatch);
+            computer.Draw(spriteBatch);
             for (int n = 0; n < activeCases.Count; n++)
                 activeCases[n].ActiveCaseDraw(spriteBatch,font);
             switch (gameplayState)
             {
                 case GamePlayState.Idle:
                     
-                    computer.Draw(spriteBatch);
+                    
                     hand.Draw(spriteBatch);
 
                     if (hand.held != null)
@@ -118,6 +125,7 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Phone:
+                    hand.Draw(spriteBatch);
                     phone.Draw(spriteBatch,fill,font);
                     break;
 

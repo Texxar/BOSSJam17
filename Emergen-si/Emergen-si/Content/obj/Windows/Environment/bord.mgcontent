@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/Environment/bord.png</SourceFile>
-  <SourceTime>2017-04-08T17:01:41.3015752+01:00</SourceTime>
+  <SourceTime>2017-04-09T02:56:50.8010634+01:00</SourceTime>
   <DestFile>C:/Users/MaxL/Documents/GameMaker/Projects/BOSSJam17/Emergen-si/Emergen-si/Content/bin/Windows/Environment/bord.xnb</DestFile>
-  <DestTime>2017-04-09T02:26:13.1731417+01:00</DestTime>
+  <DestTime>2017-04-09T03:22:42.0017102+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

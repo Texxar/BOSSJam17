@@ -32,6 +32,7 @@ namespace Emergen_si
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             graphics.PreferMultiSampling = false;
+            graphics.PreferredBackBufferFormat = SurfaceFormat.Color;
 
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;

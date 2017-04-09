@@ -19,7 +19,7 @@ namespace Emergen_si
 
         public NoteBoard(ContentManager content) : base()
         {
-            tex = content.Load<Texture2D>("HillHorizon");
+            tex = content.Load<Texture2D>("Environment\\board");
             rec = new Rectangle(800, 50, tex.Width, tex.Height);
         }
 
@@ -30,7 +30,7 @@ namespace Emergen_si
 
         public void Draw(SpriteBatch sb)
         {
-            sb.Draw(tex, rec, Color.Brown);
+            sb.Draw(tex, rec, Color.White);
         }
     }
 }

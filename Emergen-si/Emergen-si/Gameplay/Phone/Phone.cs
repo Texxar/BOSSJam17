@@ -129,7 +129,7 @@ namespace Emergen_si
 
         public override void Draw(SpriteBatch sb,Texture2D fill,BitmapFont font)
         {
-            sb.Draw(tex, rec,null, Color.Blue,rotation,new Vector2(rec.Width/2,rec.Height/2),SpriteEffects.None,0);
+            sb.Draw(tex, rec,null, Color.White,rotation,new Vector2(rec.Width/2,rec.Height/2),SpriteEffects.None,0);
 
             textInput.Draw(sb, font);
             if (call != null && active)

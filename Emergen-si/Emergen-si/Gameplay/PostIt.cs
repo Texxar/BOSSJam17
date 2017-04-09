@@ -22,9 +22,11 @@ namespace Emergen_si
 
         public PostIt(ContentManager content, NoteBoard noteBoard,string inText) : base()
         {
-            tex = content.Load<Texture2D>("HillHorizon");
+            tex = content.Load<Texture2D>("Environment\\Postit_2");
             Init();
-            scale = 1;
+            scale = 0.1f;
+            
+            rec = new Rectangle(460, rec.Y, (int)(rec.Width * scale), (int)(rec.Height * scale));
             this.noteBoard = noteBoard;
             flavortext = inText;
         }
@@ -43,7 +45,7 @@ namespace Emergen_si
                 tex,
                 new Vector2(rec.X, rec.Y), 
                 null, 
-                Color.Yellow, 
+                Color.White, 
                 0,                                              //rotation
                 new Vector2(tex.Width*0.5f, tex.Height*0.5f),   //origin
                 scale,                                          //scale
