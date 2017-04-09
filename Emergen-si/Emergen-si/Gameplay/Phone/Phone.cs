@@ -18,8 +18,12 @@ namespace Emergen_si
     {
         ContentManager content;
         Texture2D dialogueTex;
+        Texture2D phoneEmpty;
+        Texture2D phonePlaced;
         Vector2 dialogueVec;
         double countDownTillNextCall;
+
+        Texture2D postItTex;
 
         public Call call;
         List<Call> callList;
@@ -37,7 +41,12 @@ namespace Emergen_si
         public Phone(ContentManager content): base()
         {
             this.content = content;
-            tex = content.Load<Texture2D>("Environment\\fon_tom");
+            phonePlaced = content.Load<Texture2D>("Environment\\phone_x");
+            phoneEmpty = content.Load<Texture2D>("Environment\\fon_tom");
+
+            postItTex = content.Load<Texture2D>("Environment\\Postit_2");
+
+            tex = phonePlaced;
             dialogueTex = content.Load<Texture2D>("DialogueAvatar\\DialogBox");
             rec = new Rectangle(930, 470, tex.Width, tex.Height);
 
@@ -53,8 +62,6 @@ namespace Emergen_si
             dialogueVec = new Vector2(0, 800);
 
             textInput = new TextInput();
-
-
         }
 
         public void IdleUpdate(GameTime gameTime)
@@ -119,6 +126,7 @@ namespace Emergen_si
                     textInput.Clear();
                     writeNote = false;
                     call = null;
+                    tex = phonePlaced;
                     return false;
                 }
 
@@ -131,12 +139,38 @@ namespace Emergen_si
         {
             sb.Draw(tex, rec,null, Color.White,rotation,new Vector2(rec.Width/2,rec.Height/2),SpriteEffects.None,0);
 
-            textInput.Draw(sb, font);
             if (call != null && active)
             {
                 sb.Draw(dialogueTex, dialogueVec, Color.White);
                 call.Draw(sb, dialogueVec, fill);
             }
+
+            if(writeNote)
+            {
+                sb.Draw(postItTex, new Vector2(100, 50), Color.White);
+                sb.DrawString(font, ParseText(textInput.returnString,font), new Vector2(100, 50), Color.White);
+            }
+        }
+
+        private string ParseText(string inputText, BitmapFont font)
+        {
+            String line = "";
+            String returnString = String.Empty;
+            String[] wordArray = inputText.Split(' ');
+
+
+            foreach (String word in wordArray)
+            {
+                if (font.GetStringRectangle(line + word, new Vector2(100, 50)).Width > (postItTex.Width))
+                {
+                    returnString = returnString + line + '\n' + ' ';
+                    line = String.Empty;
+
+                }
+                line = line + word + ' ';
+            }
+
+            return returnString + line;
         }
 
         public void PickUpPhone()
@@ -146,6 +180,8 @@ namespace Emergen_si
             countDownTillNextCall = rand.Next(6, 20);
             active = true;
             dialogueVec = new Vector2(0, 800);
+
+            tex = phoneEmpty ;
         }
     }
 }

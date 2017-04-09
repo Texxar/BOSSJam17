@@ -16,7 +16,7 @@ namespace Emergen_si
     {
         public Computer(ContentManager content) : base()
         {
-            tex = content.Load<Texture2D>("HillHorizon");
+            tex = content.Load<Texture2D>("Environment\\screen");
             Init();
             rec = new Rectangle(420, 200, tex.Width, tex.Height);
         }
@@ -28,7 +28,7 @@ namespace Emergen_si
 
         public override void Draw(SpriteBatch sb)
         {
-            sb.Draw(tex, rec, Color.Gray);
+            sb.Draw(tex, rec, Color.White);
         }
     }
 }

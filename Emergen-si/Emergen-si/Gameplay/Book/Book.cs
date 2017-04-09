@@ -15,6 +15,7 @@ namespace Emergen_si
 {
     class Book:Interactable
     {
+        Texture2D openBook;
         List<Page> pages;
         BitmapFont font;
         int currentPage = 0;
@@ -31,6 +32,7 @@ namespace Emergen_si
             pages.Add(new Fisherman(content));
 
             tex = content.Load<Texture2D>("Environment\\bok_kanske");
+            openBook = content.Load<Texture2D>("Environment\\BookOpen");
             font = content.Load<BitmapFont>(@"Font\\BIG");
 
             rec = new Rectangle(50, 400, tex.Width, tex.Height);
@@ -62,8 +64,10 @@ namespace Emergen_si
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            
             spriteBatch.Draw(tex, rec, Color.White);
-             pages[currentPage].Draw(spriteBatch, font);
+            spriteBatch.Draw(openBook, new Vector2(0, 0), Color.White);
+            pages[currentPage].Draw(spriteBatch, font);
         }
         
         public void IdleDraw(SpriteBatch spriteBatch)

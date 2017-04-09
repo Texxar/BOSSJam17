@@ -58,8 +58,10 @@
     <Compile Include="Gameplay\Phone\Phone.cs" />
     <Compile Include="Gameplay\Phone\Call.cs" />
     <Compile Include="Gameplay\PostIt.cs" />
+    <Compile Include="Gameplay\Resources.cs" />
     <Compile Include="Gameplay\Screen\Car.cs" />
     <Compile Include="Gameplay\Screen\Map.cs" />
+    <Compile Include="Gameplay\Screen\Screen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextInput.cs" />
