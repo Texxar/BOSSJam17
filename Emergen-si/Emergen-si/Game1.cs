@@ -18,7 +18,7 @@ namespace Emergen_si
 
         GameState gameState;
 
-        Gameplay gamePlay;
+        GamePlay gamePlay;
         #region Resolution stuff
 
         public Vector2 virtualScreen;
@@ -45,7 +45,7 @@ namespace Emergen_si
             // TODO: Add your initialization logic here
             CalculateScaling(0);
 
-            gamePlay = new Gameplay(Content);
+            gamePlay = new GamePlay(Content);
             gameState = GameState.gameplay;
 
             fill = new Texture2D(GraphicsDevice, 1, 1);

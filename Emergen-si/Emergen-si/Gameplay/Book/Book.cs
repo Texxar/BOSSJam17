@@ -15,7 +15,6 @@ namespace Emergen_si
 {
     class Book:Interactable
     {
-        Texture2D tex;
         List<Page> pages;
         BitmapFont font;
         int currentPage = 0;
@@ -61,7 +60,7 @@ namespace Emergen_si
             return Mouse.GetState().RightButton == ButtonState.Pressed;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(tex, rec, Color.White);
              pages[currentPage].Draw(spriteBatch, font);

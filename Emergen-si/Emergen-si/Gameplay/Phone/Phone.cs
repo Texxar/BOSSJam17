@@ -19,7 +19,6 @@ namespace Emergen_si
         ContentManager content;
         Texture2D dialogueTex;
         Vector2 dialogueVec;
-
         double countDownTillNextCall;
 
         public Call call;

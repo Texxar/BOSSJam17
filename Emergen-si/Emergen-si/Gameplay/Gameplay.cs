@@ -21,14 +21,15 @@ namespace Emergen_si
         Book
     }
 
-    class Gameplay
+    class GamePlay
     {
         GamePlayState gameplayState;
         Phone phone;
         Book book;
+        Computer computer;
+        Map map; 
         NoteBoard noteBoard;
         Hand hand;
-
         List<Interactable> stuff;
 
         BitmapFont font;
@@ -37,14 +38,15 @@ namespace Emergen_si
 
         List<Call> activeCases;
 
-        public Gameplay(ContentManager content)
         {
             gameplayState = GamePlayState.Idle;
             book = new Book(content);
+
             bord = content.Load<Texture2D>("Environment\\bord");
             font = content.Load<BitmapFont>("Font\\BIG");
 
             noteBoard = new NoteBoard(content);
+            map = new Map(content);
 
             stuff = new List<Interactable>();
 
@@ -53,6 +55,8 @@ namespace Emergen_si
             stuff.Add(book);
 
             activeCases = new List<Call>();
+            computer = new Computer(content);
+            stuff.Add(computer);
 
             hand = new Hand(content, stuff);
 
@@ -82,7 +86,7 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Screen:
-
+                    map.Update(gameTime);
                     break;
             }
         }
@@ -99,6 +103,7 @@ namespace Emergen_si
             {
                 case GamePlayState.Idle:
                     
+                    computer.Draw(spriteBatch);
                     hand.Draw(spriteBatch);
 
                     if (hand.held != null)
@@ -116,7 +121,7 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Screen:
-
+                    map.Draw(spriteBatch);
                     break;
             }
         }

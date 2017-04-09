@@ -67,7 +67,10 @@ namespace Emergen_si
                                     returnState = GamePlayState.Phone;
                                     held = null;
                                 }
+                            
                             }
+			    if (s is Computer)
+                                returnState = GamePlayState.Screen;
 
                             if (s is Book)
                             {
