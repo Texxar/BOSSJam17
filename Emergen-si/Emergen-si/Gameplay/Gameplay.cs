@@ -27,7 +27,7 @@ namespace Emergen_si
         Phone phone;
         Book book;
         Computer computer;
-        Map map; 
+        Screen screen;
         NoteBoard noteBoard;
         Hand hand;
         List<Interactable> stuff;
@@ -47,7 +47,7 @@ namespace Emergen_si
             font = content.Load<BitmapFont>("Font\\BIG");
 
             noteBoard = new NoteBoard(content);
-            map = new Map(content);
+            screen = new Screen(content);
 
             stuff = new List<Interactable>();
 
@@ -87,7 +87,7 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Screen:
-                    map.Update(gameTime);
+                    screen.Update(gameTime);
                     break;
             }
         }
@@ -122,7 +122,7 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Screen:
-                    map.Draw(spriteBatch);
+                    screen.Draw(spriteBatch);
                     break;
             }
         }
