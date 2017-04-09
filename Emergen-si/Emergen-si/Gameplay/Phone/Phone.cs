@@ -32,6 +32,8 @@ namespace Emergen_si
         float roationValue = 0;
         float roatationSpeed = 0.3f;
 
+        double callPatience = 12;
+
         bool plusDirection = true;
 
         bool active = false;
@@ -48,7 +50,7 @@ namespace Emergen_si
 
             tex = phonePlaced;
             dialogueTex = content.Load<Texture2D>("DialogueAvatar\\DialogBox");
-            rec = new Rectangle(930, 470, tex.Width, tex.Height);
+            rec = new Rectangle(1100, 510, tex.Width, tex.Height);
 
             Random rand = new Random();
             countDownTillNextCall = rand.Next(0,2);
@@ -64,7 +66,7 @@ namespace Emergen_si
             textInput = new TextInput();
         }
 
-        public void IdleUpdate(GameTime gameTime)
+        public void IdleUpdate(GameTime gameTime,Resources resource)
         {
             if (countDownTillNextCall > 0 && call == null)
                 countDownTillNextCall -= gameTime.ElapsedGameTime.TotalSeconds;
@@ -76,8 +78,23 @@ namespace Emergen_si
                 call.Initialzie();
             }
 
-            if(call != null)
+            if(call != null && dialogueVec.Y >= 800 && writeNote == false)
             {
+                callPatience -= gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (callPatience < 0)
+                {
+                    call.FailedCase(resource);
+                    callPatience = 12;
+                    textInput.Clear();
+                    writeNote = false;
+                    call = null;
+                    tex = phonePlaced;
+
+                    Random rand = new Random();
+                    countDownTillNextCall = rand.Next(6, 20);
+                }
+                    
                 if (plusDirection)
                 {
                     roationValue += roatationSpeed;
@@ -105,7 +122,7 @@ namespace Emergen_si
             }
             else
             {
-                if (dialogueVec.Y < 850)
+                if (dialogueVec.Y < 800)
                     dialogueVec.Y += 2;
                 else
                 {

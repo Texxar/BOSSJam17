@@ -38,52 +38,6 @@
 /processorParam:TextureFormat=Color
 /build:HillHorizon.png
 
-#begin Font/BIG.fnt
-/importer:BitmapFontImporter
-/processor:BitmapFontProcessor
-/build:Font/BIG.fnt
-
-#begin Font/BIG_0.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Font/BIG_0.png
-
-#begin Font/BIG_1.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Font/BIG_1.png
-
-#begin Font/Work.fnt
-/importer:BitmapFontImporter
-/processor:BitmapFontProcessor
-/build:Font/Work.fnt
-
-#begin Font/Work_0.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Font/Work_0.png
-
 #begin Citizens/Fisherman.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -455,4 +409,79 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:POLICE.png
+
+#begin Font/OneFont.fnt
+/importer:BitmapFontImporter
+/processor:BitmapFontProcessor
+/build:Font/OneFont.fnt
+
+#begin Font/OneFont_0.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Font/OneFont_0.png
+
+#begin Font/OneFont_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Font/OneFont_1.png
+
+#begin Font/OneFont_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Font/OneFont_2.png
+
+#begin Font/FreePixel.fnt
+/importer:BitmapFontImporter
+/processor:BitmapFontProcessor
+/build:Font/FreePixel.fnt
+
+#begin Font/FreePixel_0.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Font/FreePixel_0.png
+
+#begin Font/MCBig.fnt
+/importer:BitmapFontImporter
+/processor:BitmapFontProcessor
+/build:Font/MCBig.fnt
+
+#begin Font/MCBig_0.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Font/MCBig_0.png
 

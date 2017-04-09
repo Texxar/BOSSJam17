@@ -35,7 +35,7 @@ namespace Emergen_si
 
             tex = normal;
 
-            rec = new Rectangle(0, 0, 30,30);
+            rec = new Rectangle(0, 0, 70,120);
         }
 
         public GamePlayState Update(GameTime gameTime)

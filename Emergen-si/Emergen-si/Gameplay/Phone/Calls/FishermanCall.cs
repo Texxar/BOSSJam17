@@ -22,6 +22,15 @@ namespace Emergen_si
             caseIntensity = CaseIntensity.low;
 
             failMessage = "The fishes have dried out and are dead..";
+            awardMessage = "THANK YOU FOR SAVING MY FISHIES";
+
+            missionLocation = new Vector2(1, 1);
+
+            negativeHappiness = -3;
+            negativeMoney = 0;
+
+            PositiveHappiness = 3;
+            PositivteMoney = 0;
 
             Initialzie();
 
@@ -29,12 +38,18 @@ namespace Emergen_si
 
         public FishermanCall(Call call,ContentManager content,NoteBoard noteBoard, List<Interactable> stuff,string inString) : base(call,content,noteBoard,stuff,inString)
         {
-            caseIntensity = CaseIntensity.high;
+            caseIntensity = CaseIntensity.low;
+
+            missionLocation = new Vector2(1, 1);
 
             failMessage = "The fishes have dried out and are dead..";
+            awardMessage = "THANK YOU FOR SAVING MY FISHIES";
 
             negativeHappiness = -3;
             negativeMoney = 0;
+
+            PositiveHappiness = 3;
+            PositivteMoney = 0;
     }
 
         public override void Initialzie()

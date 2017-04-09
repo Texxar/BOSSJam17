@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+using MonoGame.Extended.BitmapFonts;
+
 namespace Emergen_si
 {
     class Cursor
@@ -41,6 +43,8 @@ namespace Emergen_si
         Map map;
         Car policeCar;
 
+        double crimeSceenCountDown = 3;
+        bool atcrimeScreen = false;
 
         public Screen(ContentManager content)
         {
@@ -52,6 +56,11 @@ namespace Emergen_si
         public bool Update(GameTime gameTime)
         {
             cursor.Update(gameTime);
+
+            if(atcrimeScreen)
+            {
+                crimeSceenCountDown -= gameTime.ElapsedGameTime.TotalSeconds;
+            }
 
             MouseState mouseState = Mouse.GetState();
 
@@ -67,7 +76,7 @@ namespace Emergen_si
 
             }
 
-            policeCar.Update(gameTime);
+           
 
             if (mouseState.RightButton == ButtonState.Pressed)
                 return true;
@@ -76,12 +85,51 @@ namespace Emergen_si
                 return false;
         }
 
-        public void Draw(SpriteBatch sb)
+        public void UpdateCopCar(GameTime gameTime)
         {
+            policeCar.Update(gameTime);
+        }
+
+        public void Draw(SpriteBatch sb,BitmapFont font)
+        {
+
             map.Draw(sb);
             policeCar.Draw(sb);
+            if (atcrimeScreen)
+                sb.DrawString(font, "Case in Progress: " + (int)crimeSceenCountDown, new Vector2(policeCar.rec.X, policeCar.rec.Y), Color.Red);
 
             cursor.Draw(sb);
+        }
+
+        public void CheckWinCondition(List<Call> activeCases,Resources resource)
+        {
+            int crimeCloseTo = 0;
+            bool inCrime = false;
+            for(int n=0;n< activeCases.Count;n++)
+            {
+                if (!activeCases[n].hasBeenDealtWith)
+                {
+                    if (activeCases[n].missionLocation.X == policeCar.posX && activeCases[n].missionLocation.Y == policeCar.posY)
+                    {
+                        inCrime = true;
+                        crimeCloseTo = n;
+                    }
+                }
+            }
+
+            if(inCrime)
+            {
+                atcrimeScreen = true;
+                if(crimeSceenCountDown < 0)
+                {
+                    activeCases[crimeCloseTo].WinCase(resource);
+                }
+            }
+            else
+            {
+                crimeSceenCountDown = 3;
+                atcrimeScreen = false;
+            }
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Emergen_si
 
         bool openCall = true;
 
-        public bool hasBeenDealtWith;
+        
 
         public PostIt postIt;
 
@@ -40,11 +40,15 @@ namespace Emergen_si
 
         protected CaseIntensity caseIntensity;
 
+        public bool hasBeenDealtWith;
         bool failed;
 
         Rectangle messageBox = new Rectangle(-202, 100, 202,153);
         double countDownShowMessage;
-        
+
+
+        public Vector2 missionLocation;
+
         /// Penelties
         protected string failMessage;
         protected int negativeHappiness;
@@ -145,6 +149,28 @@ namespace Emergen_si
                 }
             }
 
+            if(hasBeenDealtWith == true)
+            {
+                if (bringOutMessage)
+                {
+                    if (messageBox.X < 0)
+                        messageBox.X++;
+                    else
+                        countDownShowMessage -= gameTime.ElapsedGameTime.TotalSeconds;
+
+                    if (countDownShowMessage < 0)
+                    {
+                        bringOutMessage = false;
+                    }
+                }
+                else
+                {
+                    messageBox.X--;
+                    if (messageBox.X < -212)
+                        return true;
+                }
+            }
+
             if (postIt != null)
                 postIt.Update(gameTime);
 
@@ -158,15 +184,24 @@ namespace Emergen_si
             dia.Draw(spriteBatch, dialogueVec, fill);
         }
 
-        public void ActiveCaseDraw(SpriteBatch spriteBatch, BitmapFont font,Texture2D fill)
+        public void PostItDraw(SpriteBatch spriteBatch, BitmapFont font)
         {
             if (postIt != null)
                 postIt.Draw(spriteBatch, font);
+        }
 
+        public void ActiveCaseDraw(SpriteBatch spriteBatch, BitmapFont font,Texture2D fill)
+        {
             if (failed)
             {
                 spriteBatch.Draw(fill, messageBox, Color.Red);
                 spriteBatch.DrawString(font, ParseText(failMessage,font), new Vector2(messageBox.X, messageBox.Y),Color.White);
+            }
+
+            if (hasBeenDealtWith)
+            {
+                spriteBatch.Draw(fill, messageBox, Color.Red);
+                spriteBatch.DrawString(font, ParseText(awardMessage, font), new Vector2(messageBox.X, messageBox.Y), Color.White);
             }
         }
 
@@ -175,6 +210,13 @@ namespace Emergen_si
             failed = true;
             resource.happiness += negativeHappiness;
             resource.money += negativeMoney;
+        }
+
+        public void WinCase(Resources resource)
+        {
+            hasBeenDealtWith = true;
+            resource.happiness += PositiveHappiness;
+            resource.money += PositivteMoney;
         }
 
         private string ParseText(string inputText, BitmapFont font)

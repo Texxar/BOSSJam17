@@ -66,7 +66,7 @@ namespace Emergen_si
                 btnDown = true;
             }
 
-            if (Keyboard.GetState().IsKeyUp(Keys.W) && Keyboard.GetState().IsKeyUp(Keys.S) && Keyboard.GetState().IsKeyUp(Keys.E))
+            if (Keyboard.GetState().IsKeyUp(Keys.W) && Keyboard.GetState().IsKeyUp(Keys.S) && Keyboard.GetState().IsKeyUp(Keys.E) && Mouse.GetState().LeftButton == ButtonState.Released)
                 btnDown = false;
 
             return tempInt;

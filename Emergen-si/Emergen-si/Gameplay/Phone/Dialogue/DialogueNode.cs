@@ -75,7 +75,7 @@ namespace Emergen_si
                 lineIsRead = ReadLine(gameTime, dialogue, ref btnDown);
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.E) && !btnDown)
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed && !btnDown)
             {
                 btnDown = true;
                 if (dialogueState == DialogueState.Text && lineIsRead)
@@ -120,7 +120,7 @@ namespace Emergen_si
                 timer = gameTime.TotalGameTime.TotalMilliseconds;
 
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.E) && !btnDown)
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed && !btnDown)
             {
                 btnDown = true;
 

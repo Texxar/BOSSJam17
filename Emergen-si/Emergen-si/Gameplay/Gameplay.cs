@@ -33,6 +33,7 @@ namespace Emergen_si
         List<Interactable> stuff;
 
         BitmapFont font;
+        BitmapFont smallFont;
 
         Texture2D background;
         Texture2D bord;
@@ -52,7 +53,8 @@ namespace Emergen_si
 
             background = content.Load<Texture2D>("Environment\\bakgrund_color");
             bord = content.Load<Texture2D>("Environment\\bord");
-            font = content.Load<BitmapFont>("Font\\BIG");
+            font = content.Load<BitmapFont>("Font\\OneFont");
+            smallFont = content.Load<BitmapFont>("Font\\FreePixel");
 
             happinessIcon = content.Load<Texture2D>("happinessIcon");
             moneyIcon = content.Load<Texture2D>("moneyIcon");
@@ -79,17 +81,25 @@ namespace Emergen_si
         public void Update(GameTime gameTime)
         {
             for (int n = 0; n < activeCases.Count; n++)
-               if( activeCases[n].ActiveCaseUpdate(gameTime,resource))
+            {
+                if (activeCases[n].ActiveCaseUpdate(gameTime, resource))
                 {
                     activeCases.RemoveAt(n);
                 }
+            }
+            screen.CheckWinCondition(activeCases, resource);
+
+            screen.UpdateCopCar(gameTime);
+
+            phone.IdleUpdate(gameTime,resource);
+
             switch (gameplayState)
             {
                 case GamePlayState.Idle:
                     GamePlayState temPState = hand.Update(gameTime);
                     if (temPState != GamePlayState.Idle)
                         gameplayState = temPState;
-                    phone.IdleUpdate(gameTime);
+                    
                     break;
 
                 case GamePlayState.Book:
@@ -103,7 +113,7 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Screen:
-                    if(screen.Update(gameTime))
+                    if (screen.Update(gameTime))
                         gameplayState = GamePlayState.Idle;
                     break;
             }
@@ -121,12 +131,12 @@ namespace Emergen_si
             computer.Draw(spriteBatch);
 
             for (int n = 0; n < activeCases.Count; n++)
-                activeCases[n].ActiveCaseDraw(spriteBatch,font,fill);
+                activeCases[n].PostItDraw(spriteBatch, font);
+
             switch (gameplayState)
             {
                 case GamePlayState.Idle:
-                    
-                    
+                   
                     hand.Draw(spriteBatch,fill);
 
                     if (hand.held != null)
@@ -145,9 +155,12 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Screen:
-                    screen.Draw(spriteBatch);
+                    screen.Draw(spriteBatch, font);
                     break;
             }
+            for (int n = 0; n < activeCases.Count; n++)
+                activeCases[n].ActiveCaseDraw(spriteBatch, smallFont, fill);
+
 
             spriteBatch.Draw(happinessIcon, new Vector2(40, 0), Color.White);
             spriteBatch.DrawString(font,resource.happiness.ToString(), new Vector2(110, 0),Color.White);
