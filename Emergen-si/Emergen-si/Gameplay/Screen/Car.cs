@@ -15,9 +15,10 @@ namespace Emergen_si
     class Car: Interactable
     {
         Map map;
-        int posX, posY;
-        int goalX, goalY;
+        public int posX, posY;
+        public int goalX, goalY;
         int speed;
+        bool locked;
 
         public Car(ContentManager content, Map map) : base()
         {
@@ -29,6 +30,7 @@ namespace Emergen_si
             rec.Width = 20;
             rec.Height = 20;
             speed = 5;
+            locked = false;
 
             posX = 1;
             posY = 1;
@@ -39,6 +41,7 @@ namespace Emergen_si
 
         public void Update(GameTime gameTime)
         {
+
             //Move
             if (posX < goalX && map.tileMap[posX+1][posY].road)
             {
@@ -56,6 +59,7 @@ namespace Emergen_si
             {
                 rec.Y -= speed;
             }
+
 
             UpdatePos();
 

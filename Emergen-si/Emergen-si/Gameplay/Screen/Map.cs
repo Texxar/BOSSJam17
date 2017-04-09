@@ -38,9 +38,9 @@ namespace Emergen_si
 
         public Map(ContentManager content)
         {
-            mapWidth = 10;//33;
-            mapHeight = 10;//16;
-            tileSize = 50;
+            mapWidth = 33;
+            mapHeight = 16;
+            tileSize = 30;
             tex = content.Load<Texture2D>("HillHorizon");
             //Set size of tilemap
             SetUpTileMap();
@@ -60,7 +60,7 @@ namespace Emergen_si
                 for (int y = 0; y < mapHeight; y++)
                 {
                     tileMap[x][y] = new Tile();
-                    if (x % 2 != 0 || y % 2 != 0)
+                    if (x % 3 == 0 || y % 2 == 0)
                     {
                         tileMap[x][y].road = true;
                     }
@@ -72,11 +72,25 @@ namespace Emergen_si
 
         public int GetXTile(int x)
         {
-            return (x - rec.X) / tileSize;
+            int tile = (x - rec.X) / tileSize;
+
+            if (tile > mapWidth-1)
+            {
+                tile = 0;
+            }
+
+            return tile;
         }
         public int GetYTile(int y)
         {
-            return (y - rec.Y) / tileSize;
+            int tile = (y - rec.Y) / tileSize;
+
+            if (tile > mapHeight-1)
+            {
+                tile = 0;
+            }
+
+            return tile;
         }
 
         public void Update(GameTime gameTime)
