@@ -125,8 +125,8 @@ namespace Emergen_si
                     break;
 
                 case GamePlayState.Phone:
-                    hand.Draw(spriteBatch);
                     phone.Draw(spriteBatch,fill,font);
+                    hand.Draw(spriteBatch);
                     break;
 
                 case GamePlayState.Screen:

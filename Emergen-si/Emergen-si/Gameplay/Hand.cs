@@ -74,6 +74,8 @@ namespace Emergen_si
                                     returnState = GamePlayState.Phone;
                                     held = null;
                                     tex = holdingPhone;
+                                    rec.X = 400;
+                                    rec.Y = 220;
                                 }
                             
                             }
@@ -114,7 +116,7 @@ namespace Emergen_si
 
         public void Draw(SpriteBatch sb)
         {
-            sb.Draw(tex, rec, Color.White);
+            sb.Draw(tex, new Vector2(rec.X,rec.Y), Color.White);
         }
     }
 }
